@@ -51,3 +51,9 @@ $back-to-top-glyphicon-width: 14px;
 //
 $loading-spinner-active-color: #9b9b9b;
 $loading-spinner-time: 0.75s;
+
+//== Banner
+//
+//
+$banner-breakpoint: $screen-sm;
+$banner-breakpoint-max: ($banner-breakpoint - 1);

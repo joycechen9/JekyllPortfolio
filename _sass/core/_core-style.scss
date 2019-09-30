@@ -63,6 +63,10 @@
         padding: 15px;
         overflow-y: hidden;
 
+        @media (max-width: $banner-breakpoint-max) {
+            flex-wrap: wrap;
+        }
+
         &.banner-dismissible {
             &.banner-hidden {
                 display: none;
@@ -207,6 +211,19 @@
             .banner-dismiss {
                 display: flex;
                 align-items: center;
+            }
+
+            @media (max-width: $banner-breakpoint-max) {
+                width: 100%;
+            }
+        }
+
+        .banner-content + .banner-dismiss-wrapper {
+            margin-left: 15px;
+
+            @media (max-width: $banner-breakpoint-max) {
+                margin-left: 0;
+                margin-top: 15px;
             }
         }
     }
