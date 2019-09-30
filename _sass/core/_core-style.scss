@@ -63,10 +63,6 @@
         padding: 15px;
         overflow-y: hidden;
 
-        @media (max-width: $banner-breakpoint-max) {
-            flex-wrap: wrap;
-        }
-
         &.banner-dismissible {
             &.banner-hidden {
                 display: none;
@@ -214,13 +210,19 @@
             }
         }
 
-        .banner-content + .banner-cookies_and_privacy-dismiss-wrapper {
-            margin-left: 15px;
-
+        &.banner-cookies_and_privacy {
             @media (max-width: $banner-breakpoint-max) {
-                width: 100%;
-                margin-left: 0;
-                margin-top: 15px;
+                flex-wrap: wrap;
+            }
+
+            .banner-content + .banner-cookies_and_privacy-dismiss-wrapper {
+                margin-left: 15px;
+
+                @media (max-width: $banner-breakpoint-max) {
+                    width: 100%;
+                    margin-left: 0;
+                    margin-top: 15px;
+                }
             }
         }
     }
