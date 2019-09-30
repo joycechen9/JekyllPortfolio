@@ -55,5 +55,5 @@ $loading-spinner-time: 0.75s;
 //== Banner
 //
 //
-$banner-breakpoint: $screen-sm;
+$banner-breakpoint: 768px !default;
 $banner-breakpoint-max: ($banner-breakpoint - 1);
