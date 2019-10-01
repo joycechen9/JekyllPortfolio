@@ -87,6 +87,9 @@ module.exports = env => {
                 uglifyOptions: {
                     warnings: false,
                     ie8: false,
+                    compress: {
+                        drop_console: true,
+                    },
                 },
                 parallel: os.cpus().length,
                 cache: true,
