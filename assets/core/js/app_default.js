@@ -120,27 +120,33 @@ $(document).ready(function() {
 
         $('.banner-dismiss').click(function() {
             var target = $(this).data('target');
-            var checkbox = $(`#${target} .dismiss-check`);
-            if (checkbox) $(checkbox).addClass('checked');
-            $(`#${target}`)
-                .addClass('dismissing')
-                .animate(
-                    {
-                        opacity: 0,
-                        height: '0',
-                        paddingTop: '0',
-                        paddingBottom: '0',
-                    },
-                    1000,
-                    function() {
-                        var bannerCookie = getClosedBannerListCookie() || [];
-                        setClosedBannerListCookie(
-                            bannerCookie.concat([target])
-                        );
-                        $(`#${target}`).remove();
-                        setMainMarginTopBottom();
-                    }
-                );
+
+            var bannerCookie = getClosedBannerListCookie() || [];
+            setClosedBannerListCookie(bannerCookie.concat([target]));
+            $(`#${target}`).remove();
+            setMainMarginTopBottom();
+
+            // var checkbox = $(`#${target} .dismiss-check`);
+            // if (checkbox) $(checkbox).addClass('checked');
+            // $(`#${target}`)
+            //     .addClass('dismissing')
+            //     .animate(
+            //         {
+            //             opacity: 0,
+            //             height: '0',
+            //             paddingTop: '0',
+            //             paddingBottom: '0',
+            //         },
+            //         1000,
+            //         function() {
+            //             var bannerCookie = getClosedBannerListCookie() || [];
+            //             setClosedBannerListCookie(
+            //                 bannerCookie.concat([target])
+            //             );
+            //             $(`#${target}`).remove();
+            //             setMainMarginTopBottom();
+            //         }
+            //     );
         });
     });
 
