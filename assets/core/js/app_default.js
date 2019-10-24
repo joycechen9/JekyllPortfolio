@@ -198,6 +198,17 @@ $(document).ready(function() {
         $('#main-website-area').css('padding-top', '0');
     }
 
+    function canBeStickyHeight() {
+        console.log(
+            $(document).height() - $(window).height() >
+                $('#navigation').innerHeight()
+        );
+        return (
+            $(document).height() - $(window).height() >
+            $('#navigation').innerHeight()
+        );
+    }
+
     function stickyNavBar(forceRecalculate) {
         var windowWidth = $window.width();
         var alwaysSticky = window.STICKY_BY_DEFAULT_BELOW || 768;
@@ -269,16 +280,18 @@ $(document).ready(function() {
     }
 
     function sizeDependentMenuBehaviour(forceRecalculate) {
-        var windowWidth = $(window).width();
-        var breakpoint = window.GRID_FLOAT_BREAKPOINT || 768;
-        setMainMarginTopBottom();
-        if (windowWidth < breakpoint) {
-            $menuAnchor.attr('data-toggle', 'dropdown');
-        } else {
-            $menuAnchor.attr('data-toggle', '');
-        }
-        if (!window.STICKYNAV_DISABLED) {
-            stickyNavBar(forceRecalculate);
+        if (canBeStickyHeight()) {
+            var windowWidth = $(window).width();
+            var breakpoint = window.GRID_FLOAT_BREAKPOINT || 768;
+            setMainMarginTopBottom();
+            if (windowWidth < breakpoint) {
+                $menuAnchor.attr('data-toggle', 'dropdown');
+            } else {
+                $menuAnchor.attr('data-toggle', '');
+            }
+            if (!window.STICKYNAV_DISABLED) {
+                stickyNavBar(forceRecalculate);
+            }
         }
     }
 
@@ -298,16 +311,20 @@ $(document).ready(function() {
         $('.image-modal:visible').each(centerModal);
     });
 
-    sizeDependentMenuBehaviour();
+    if (canBeStickyHeight()) {
+        sizeDependentMenuBehaviour();
+    }
     $window.resize(sizeDependentMenuBehaviour);
     $window.scroll(function() {
-        if (!window.STICKYNAV_DISABLED) {
-            /* Navbar minimization */
-            stickyNavBar();
-        }
+        if (canBeStickyHeight()) {
+            if (!window.STICKYNAV_DISABLED) {
+                /* Navbar minimization */
+                stickyNavBar();
+            }
 
-        if (!window.BACKTOTOP_DISABLED) {
-            backToTop();
+            if (!window.BACKTOTOP_DISABLED) {
+                backToTop();
+            }
         }
     });
     document.body.addEventListener('userLoggedin', function() {
