@@ -199,10 +199,6 @@ $(document).ready(function() {
     }
 
     function canBeStickyHeight() {
-        console.log(
-            $(document).height() - $(window).height() >
-                $('#navigation').innerHeight()
-        );
         return (
             $(document).height() - $(window).height() >
             $('#navigation').innerHeight()
