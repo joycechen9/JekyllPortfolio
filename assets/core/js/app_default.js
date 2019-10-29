@@ -36,7 +36,7 @@ $(document).ready(function() {
     /*-------------------------------------------------*/
     // BANNER
     function setCookie(cname, cvalue) {
-        document.cookie = `${cname}=${cvalue}`;
+        document.cookie = `${cname}=${cvalue};path=/`;
     }
 
     function getCookie(cname) {
@@ -70,9 +70,7 @@ $(document).ready(function() {
     function setClosedBannerListCookie(messages) {
         setCookie(
             'closedBanner',
-            messages && messages.length ? JSON.stringify(messages) : '',
-            0,
-            '/'
+            messages && messages.length ? JSON.stringify(messages) : ''
         );
     }
 
