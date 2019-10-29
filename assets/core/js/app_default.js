@@ -36,7 +36,7 @@ $(document).ready(function() {
     /*-------------------------------------------------*/
     // BANNER
     function setCookie(cname, cvalue) {
-        document.cookie = `${cname}=${cvalue}`;
+        document.cookie = `${cname}=${cvalue};path=/`;
     }
 
     function getCookie(cname) {
