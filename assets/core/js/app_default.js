@@ -70,9 +70,7 @@ $(document).ready(function() {
     function setClosedBannerListCookie(messages) {
         setCookie(
             'closedBanner',
-            messages && messages.length ? JSON.stringify(messages) : '',
-            0,
-            '/'
+            messages && messages.length ? JSON.stringify(messages) : ''
         );
     }
 
