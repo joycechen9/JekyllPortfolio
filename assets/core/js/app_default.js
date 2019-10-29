@@ -255,7 +255,11 @@ $(document).ready(function() {
                 }
             } else {
                 var navOffset = 0;
-                if ($('#menu-main-menu') && $('#menu-main-menu').offset()) {
+                if (
+                    $('#menu-main-menu') &&
+                    $('#menu-main-menu').css('display') != 'none' &&
+                    $('#menu-main-menu').offset()
+                ) {
                     navOffset += $('#menu-main-menu').offset().top;
                     if (
                         $('#navbar-collapse-1') &&
@@ -276,6 +280,7 @@ $(document).ready(function() {
     }
 
     function sizeDependentMenuBehaviour(forceRecalculate) {
+        setMainMarginTopBottom();
         if (canBeStickyHeight()) {
             var windowWidth = $(window).width();
             var breakpoint = window.GRID_FLOAT_BREAKPOINT || 768;
@@ -288,6 +293,8 @@ $(document).ready(function() {
             if (!window.STICKYNAV_DISABLED) {
                 stickyNavBar(forceRecalculate);
             }
+        } else {
+            unStickyNavSetting();
         }
     }
 
