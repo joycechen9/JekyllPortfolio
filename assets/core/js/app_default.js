@@ -1,5 +1,5 @@
-$(document).ready(function() {
-    (function() {
+$(document).ready(function () {
+    (function () {
         if (
             '-ms-user-select' in document.documentElement.style &&
             navigator.userAgent.match(/IEMobile/)
@@ -32,6 +32,58 @@ $(document).ready(function() {
             }
         }
     }
+
+    /*-------------------------------------------------*/
+    // OICR Parent Nav
+    function OICRParentNav() {
+        var NAV_BOTTOM = 24;
+        var NAV_TOP = 28;
+        var BOTTOM_OFFSET = 20;
+        var $element;
+        var $button;
+        var isOpen = false;
+        var initialized = false;
+        function onClick(e) {
+            return e;
+        }
+        return {
+            init: function (opt) {
+                var baseURL = window.APP_CONFIG.OICR_PARENT_NAV_URL;
+                var iframe = `<ifr${''}ame id=\"oicr-parent-nav\" style=\"transition: bottom .2s; position: absolute; z-index: 900; bottom: calc(100% - ${BOTTOM_OFFSET + NAV_BOTTOM}px); \" src=\"${baseURL}\" name=\"\" frameBorder=\"0\" scrolling=\"no\" width=\"100%\"></ifr${''}ame>`;
+                var $element = $(iframe);
+                document.body.prepend($element.get(0));
+                // Listen post message from iframe.
+                $(window).on('message onmessage', function (e) {
+                    if (e.originalEvent && e.originalEvent.data) {
+                        try {
+                            const data = JSON.parse(e.originalEvent.data);
+                            if (data.type === 'oicr-global-nav-click') {
+                                if (data.open) {
+                                    $element.css({ bottom: `calc(100% - ${BOTTOM_OFFSET + NAV_BOTTOM + NAV_TOP}px)` });
+                                } else {
+                                    $element.css({ bottom: `calc(100% - ${BOTTOM_OFFSET + NAV_BOTTOM}px)` });
+                                }
+                                isOpen = data.open;
+                                opt.onClick(e)
+                            }
+                        } catch (e) { }
+                    }
+                })
+                initialized = true;
+            },
+            getElementHeight: function () {
+                if (!initialized) return 0;
+                return isOpen ? NAV_TOP + NAV_BOTTOM : NAV_BOTTOM;
+            },
+            getElement: function () {
+                return $element;
+            },
+            getButton: function () {
+                return $button;
+            }
+        }
+    }
+    var oicrParentNav = OICRParentNav();
 
     /*-------------------------------------------------*/
     // BANNER
@@ -81,9 +133,13 @@ $(document).ready(function() {
         var bannerBottomMargin = $('#banner-bottom-container')
             ? $('#banner-bottom-container').outerHeight()
             : 0;
-        $('#main-website-area').css('margin-top', `${bannerTopMargin}px`);
+
+        var oicrParentNavHeight = oicrParentNav.getElementHeight();
+
+        $('#main-website-area').css('margin-top', `${bannerTopMargin + oicrParentNavHeight}px`);
         $('#main-website-area').css('margin-bottom', `${bannerBottomMargin}px`);
-        $('#navigation').css('top', `${bannerTopMargin}px`);
+        $('#navigation').css('top', `${bannerTopMargin + oicrParentNavHeight}px`);
+        $('#banner-top-container').css('top', `${oicrParentNavHeight}px`);
     }
 
     function getBannerTopHeight() {
@@ -92,11 +148,19 @@ $(document).ready(function() {
             : 0;
     }
 
-    $(document).ready(function() {
+    function stickyBannerBar() {
+        if ($(document).scrollTop() > 0) {
+            $('#banner-top-container').css({ 'top': '0px', 'z-index': 1000 });
+        } else {
+            $('#banner-top-container').css({ 'top': `${oicrParentNav.getElementHeight()}px`, 'z-index': 100 });
+        }
+    }
+
+    $(document).ready(function () {
         var closedBanner = getClosedBannerListCookie();
 
         if ($('.banner.banner-dismissible')) {
-            $('.banner.banner-dismissible').each(function() {
+            $('.banner.banner-dismissible').each(function () {
                 if (
                     closedBanner &&
                     closedBanner.length &&
@@ -118,7 +182,7 @@ $(document).ready(function() {
 
         setMainMarginTopBottom();
 
-        $('.banner-dismiss').click(function() {
+        $('.banner-dismiss').click(function () {
             var target = $(this).data('target');
 
             var bannerCookie = getClosedBannerListCookie() || [];
@@ -173,7 +237,7 @@ $(document).ready(function() {
 
     backToTop();
 
-    $('#backToTop').click(function() {
+    $('#backToTop').click(function () {
         $('html, body').animate({ scrollTop: 0 }, 600);
         return false;
     });
@@ -221,7 +285,7 @@ $(document).ready(function() {
             }
             //Dropdown list
             $('.dropdown-toggle').attr('data-toggle', 'dropdown');
-            $('.dropdown-toggle').click(function() {
+            $('.dropdown-toggle').click(function () {
                 if ($(this).hasClass('open')) {
                     $(this).removeClass('open');
                 } else {
@@ -292,6 +356,7 @@ $(document).ready(function() {
             }
             if (!window.STICKYNAV_DISABLED) {
                 stickyNavBar(forceRecalculate);
+                stickyBannerBar();
             }
         } else {
             unStickyNavSetting();
@@ -310,7 +375,7 @@ $(document).ready(function() {
     }
 
     $(document).on('show.bs.modal', '.image-modal', centerModal);
-    $(window).on('resize', function() {
+    $(window).on('resize', function () {
         $('.image-modal:visible').each(centerModal);
     });
 
@@ -318,11 +383,12 @@ $(document).ready(function() {
         sizeDependentMenuBehaviour();
     }
     $window.resize(sizeDependentMenuBehaviour);
-    $window.scroll(function() {
+    $window.scroll(function () {
         if (canBeStickyHeight()) {
             if (!window.STICKYNAV_DISABLED) {
                 /* Navbar minimization */
                 stickyNavBar();
+                stickyBannerBar();
             }
 
             if (!window.BACKTOTOP_DISABLED) {
@@ -330,7 +396,12 @@ $(document).ready(function() {
             }
         }
     });
-    document.body.addEventListener('userLoggedin', function() {
+    document.body.addEventListener('userLoggedin', function () {
         sizeDependentMenuBehaviour(true);
     });
+
+    // Init OICR Parent Nav
+    if (window.APP_CONFIG.OICR_PARENT_NAV_URL) {
+        oicrParentNav.init({ onClick: setMainMarginTopBottom });
+    }
 });
