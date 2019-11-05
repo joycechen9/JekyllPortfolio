@@ -1,0 +1,38 @@
+{
+  "name": "app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@babel/polyfill": "^7.7.0",
+    "@oicr-webdev/react-scripts": "^0.0.0-baseline",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "redux": "^4.0.4",
+    "react-redux": "^5.1.1",
+    "redux-form": "^8.2.6",
+    "react-lazyload": "^2.6.2",
+    "oicr-ui-core": "git+ssh://git@github.com/webdev-dev/webdev_oicr-ui-core.git#react16",
+    "wfui-react": "git+ssh://git@github.com/webdev-dev/webdev_wfui-react.git#react16"
+  },
+  "scripts": {
+    "start": "react-scripts --max_old_space_size=8192 start",
+    "build": "react-scripts --max_old_space_size=8192 build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
