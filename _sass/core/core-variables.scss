@@ -5,55 +5,55 @@
 //== Banner
 //
 //
-$banner-default-border-width: 1px;
-$banner-default-border-color: #d3d3d3;
-$banner-default-background-color: #f8f8f8;
-$banner-default-highlight-color: #000;
+$banner-default-border-width: 1px !default;
+$banner-default-border-color: #d3d3d3 !default;
+$banner-default-background-color: #f8f8f8 !default;
+$banner-default-highlight-color: #000 !default;
 
-$banner-info-border-width: $banner-default-border-width;
-$banner-info-border-color: $banner-default-border-color;
-$banner-info-background-color: #f5faff;
-$banner-info-highlight-color: #017bc7;
+$banner-info-border-width: $banner-default-border-width !default;
+$banner-info-border-color: $banner-default-border-color !default;
+$banner-info-background-color: #f5faff !default;
+$banner-info-highlight-color: #017bc7 !default;
 
-$banner-error-border-width: $banner-default-border-width;
-$banner-error-border-color: $banner-default-border-color;
-$banner-error-background-color: rgba(185, 19, 26, 0.06);
-$banner-error-highlight-color: #990000;
+$banner-error-border-width: $banner-default-border-width !default;
+$banner-error-border-color: $banner-default-border-color !default;
+$banner-error-background-color: rgba(185, 19, 26, 0.06) !default;
+$banner-error-highlight-color: #990000 !default;
 
-$banner-privacy-border-width: $banner-default-border-width;
-$banner-privacy-border-color: $banner-default-border-color;
-$banner-privacy-background-color: rgba(185, 19, 26, 0.06);
-$banner-privacy-highlight-color: #990000;
-$banner-privacy-button-highlight-color: #2e7b33;
+$banner-privacy-border-width: $banner-default-border-width !default;
+$banner-privacy-border-color: $banner-default-border-color !default;
+$banner-privacy-background-color: rgba(185, 19, 26, 0.06) !default;
+$banner-privacy-highlight-color: #990000 !default;
+$banner-privacy-button-highlight-color: #2e7b33 !default;
 
 //== Back To Top
 //
 //
-$back-to-top-btn-position-bottom: 15px;
-$back-to-top-btn-position-right: 15px;
-$back-to-top-btn-bg: rgba(255, 255, 255, 0.7);
-$back-to-top-btn-color: #707070;
-$back-to-top-btn-color-hover: #343434;
-$back-to-top-btn-border-radius: 60px;
-$back-to-top-btn-padding: 5px 15px;
-$back-to-top-btn-font-size: 16px;
+$back-to-top-btn-position-bottom: 15px !default;
+$back-to-top-btn-position-right: 15px !default;
+$back-to-top-btn-bg: rgba(255, 255, 255, 0.7) !default;
+$back-to-top-btn-color: #707070 !default;
+$back-to-top-btn-color-hover: #343434 !default;
+$back-to-top-btn-border-radius: 60px !default;
+$back-to-top-btn-padding: 5px 15px !default;
+$back-to-top-btn-font-size: 16px !default;
 
-$back-to-top-icon-border: 1px solid $back-to-top-btn-color;
-$back-to-top-icon-border-hover: 1px solid $back-to-top-btn-color-hover;
-$back-to-top-icon-border-radius: 50%;
-$back-to-top-icon-width: 25px;
-$back-to-top-icon-height: 25px;
-$back-to-top-icon-margin-left: 5px;
-$back-to-top-glyphicon-width: 14px;
+$back-to-top-icon-border: 1px solid $back-to-top-btn-color !default;
+$back-to-top-icon-border-hover: 1px solid $back-to-top-btn-color-hover !default;
+$back-to-top-icon-border-radius: 50% !default;
+$back-to-top-icon-width: 25px !default;
+$back-to-top-icon-height: 25px !default;
+$back-to-top-icon-margin-left: 5px !default;
+$back-to-top-glyphicon-width: 14px !default;
 
 //== Loading Spinner
 //
 //
-$loading-spinner-active-color: #9b9b9b;
-$loading-spinner-time: 0.75s;
+$loading-spinner-active-color: #9b9b9b !default;
+$loading-spinner-time: 0.75s !default;
 
 //== Banner
 //
 //
 $banner-breakpoint: 768px !default;
-$banner-breakpoint-max: ($banner-breakpoint - 1);
+$banner-breakpoint-max: ($banner-breakpoint - 1) !default;
