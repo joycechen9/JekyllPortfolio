@@ -380,7 +380,7 @@
     float: right;
     margin: 0 0 15px 22px;
 
-    @media (max-width: $grid-float-breakpoint-max) {
+    @include media-breakpoint-down(md) {
         width: 60%;
         float: none;
         margin: 0 20%;
@@ -397,7 +397,7 @@
     float: left;
     margin: 0 22px 15px 0;
 
-    @media (max-width: $grid-float-breakpoint-max) {
+    @include media-breakpoint-down(md) {
         width: 60%;
         float: none;
         margin: 0 20%;
