@@ -236,7 +236,7 @@
 }
 
 .sticky-lg {
-    @media (min-width: $screen-lg-min) {
+    @include media-breakpoint-up(xl) {
         position: fixed;
         top: 0;
         width: 100%;
@@ -245,7 +245,7 @@
 }
 
 .sticky-md {
-    @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+    @include media-breakpoint-only(lg) {
         position: fixed;
         top: 0;
         width: 100%;
@@ -254,7 +254,7 @@
 }
 
 .sticky-sm {
-    @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+    @include media-breakpoint-only(md) {
         position: fixed;
         top: 0;
         width: 100%;
@@ -263,7 +263,7 @@
 }
 
 .sticky-xs {
-    @media (max-width: $screen-xs-max) {
+    @include media-breakpoint-down(sm) {
         position: fixed;
         top: 0;
         width: 100%;
