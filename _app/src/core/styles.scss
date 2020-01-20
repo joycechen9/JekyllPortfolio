@@ -1,7 +1,14 @@
-@import '../../../_sass/core/bootstrap-variables.scss';
-@import '../_sass/core/core-variables';
-@import '../../node_modules/oicr-ui-core/lib/styles/scss/variables/_oicr-theme-variables.scss';
-@import '../../node_modules/oicr-ui-core/lib/styles/scss/variables/_base-theme-variables.scss';
-@import '../../../_sass/site/site-variables.scss';
-@import '../../node_modules/wfui-react/dist/_wfui-react.scss';
-@import '../../node_modules/oicr-ui-core/lib/styles/_oicr-ui-core.scss';
+@import '../../../_sass/core/bootstrap-functions';
+@import '../../../_sass/site/site-variables';
+@import '../../../_sass/core/core-variables';
+@import '../../../_sass/core/bootstrap-variables';
+@import '../../../_sass/core/bootstrap';
+
+@import '../../node_modules/wfui-react/lib/styles/_wfui-functions.scss';
+@import '../../node_modules/wfui-react/lib/styles/_wfui-variables.scss';
+@import '../../node_modules/wfui-react/lib/styles/_wfui-mixins.scss';
+@import '../../node_modules/wfui-react/lib/styles/_wfui-components.scss';
+
+@import '../../node_modules/oicr-ui-core/lib/styles/_ui-core-variables.scss';
+@import '../../node_modules/oicr-ui-core/lib/styles/_ui-core-mixins.scss';
+@import '../../node_modules/oicr-ui-core/lib/styles/_ui-core-components.scss';
