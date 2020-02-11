@@ -1,5 +1,5 @@
-$(document).ready(function () {
-    (function () {
+$(document).ready(function() {
+    (function() {
         if (
             '-ms-user-select' in document.documentElement.style &&
             navigator.userAgent.match(/IEMobile/)
@@ -47,41 +47,49 @@ $(document).ready(function () {
             return e;
         }
         return {
-            init: function (opt) {
+            init: function(opt) {
                 var baseURL = window.APP_CONFIG.OICR_PARENT_NAV_URL;
-                var iframe = `<ifr${''}ame id=\"oicr-parent-nav\" style=\"transition: bottom .2s; position: absolute; z-index: 900; bottom: calc(100% - ${BOTTOM_OFFSET + NAV_BOTTOM}px); \" src=\"${baseURL}\" name=\"\" frameBorder=\"0\" scrolling=\"no\" width=\"100%\"></ifr${''}ame>`;
+                var iframe = `<ifr${''}ame id=\"oicr-parent-nav\" style=\"transition: bottom .2s; position: absolute; z-index: 900; bottom: calc(100% - ${BOTTOM_OFFSET +
+                    NAV_BOTTOM}px); \" src=\"${baseURL}\" name=\"\" frameBorder=\"0\" scrolling=\"no\" width=\"100%\"></ifr${''}ame>`;
                 var $element = $(iframe);
                 document.body.prepend($element.get(0));
                 // Listen post message from iframe.
-                $(window).on('message onmessage', function (e) {
+                $(window).on('message onmessage', function(e) {
                     if (e.originalEvent && e.originalEvent.data) {
                         try {
                             const data = JSON.parse(e.originalEvent.data);
                             if (data.type === 'oicr-global-nav-click') {
                                 if (data.open) {
-                                    $element.css({ bottom: `calc(100% - ${BOTTOM_OFFSET + NAV_BOTTOM + NAV_TOP}px)` });
+                                    $element.css({
+                                        bottom: `calc(100% - ${BOTTOM_OFFSET +
+                                            NAV_BOTTOM +
+                                            NAV_TOP}px)`,
+                                    });
                                 } else {
-                                    $element.css({ bottom: `calc(100% - ${BOTTOM_OFFSET + NAV_BOTTOM}px)` });
+                                    $element.css({
+                                        bottom: `calc(100% - ${BOTTOM_OFFSET +
+                                            NAV_BOTTOM}px)`,
+                                    });
                                 }
                                 isOpen = data.open;
-                                opt.onClick(e)
+                                opt.onClick(e);
                             }
-                        } catch (e) { }
+                        } catch (e) {}
                     }
-                })
+                });
                 initialized = true;
             },
-            getElementHeight: function () {
+            getElementHeight: function() {
                 if (!initialized) return 0;
                 return isOpen ? NAV_TOP + NAV_BOTTOM : NAV_BOTTOM;
             },
-            getElement: function () {
+            getElement: function() {
                 return $element;
             },
-            getButton: function () {
+            getButton: function() {
                 return $button;
-            }
-        }
+            },
+        };
     }
     var oicrParentNav = OICRParentNav();
 
@@ -136,9 +144,15 @@ $(document).ready(function () {
 
         var oicrParentNavHeight = oicrParentNav.getElementHeight();
 
-        $('#main-website-area').css('margin-top', `${bannerTopMargin + oicrParentNavHeight}px`);
+        $('#main-website-area').css(
+            'margin-top',
+            `${bannerTopMargin + oicrParentNavHeight}px`
+        );
         $('#main-website-area').css('margin-bottom', `${bannerBottomMargin}px`);
-        $('#navigation').css('top', `${bannerTopMargin + oicrParentNavHeight}px`);
+        $('#navigation').css(
+            'top',
+            `${bannerTopMargin + oicrParentNavHeight}px`
+        );
         $('#banner-top-container').css('top', `${oicrParentNavHeight}px`);
     }
 
@@ -150,17 +164,20 @@ $(document).ready(function () {
 
     function stickyBannerBar() {
         if ($(document).scrollTop() > 0) {
-            $('#banner-top-container').css({ 'top': '0px', 'z-index': 1000 });
+            $('#banner-top-container').css({ top: '0px', 'z-index': 1000 });
         } else {
-            $('#banner-top-container').css({ 'top': `${oicrParentNav.getElementHeight()}px`, 'z-index': 100 });
+            $('#banner-top-container').css({
+                top: `${oicrParentNav.getElementHeight()}px`,
+                'z-index': 100,
+            });
         }
     }
 
-    $(document).ready(function () {
+    $(document).ready(function() {
         var closedBanner = getClosedBannerListCookie();
 
         if ($('.banner.banner-dismissible')) {
-            $('.banner.banner-dismissible').each(function () {
+            $('.banner.banner-dismissible').each(function() {
                 if (
                     closedBanner &&
                     closedBanner.length &&
@@ -182,7 +199,7 @@ $(document).ready(function () {
 
         setMainMarginTopBottom();
 
-        $('.banner-dismiss').click(function () {
+        $('.banner-dismiss').click(function() {
             var target = $(this).data('target');
 
             var bannerCookie = getClosedBannerListCookie() || [];
@@ -237,7 +254,7 @@ $(document).ready(function () {
 
     backToTop();
 
-    $('#backToTop').click(function () {
+    $('#backToTop').click(function() {
         $('html, body').animate({ scrollTop: 0 }, 600);
         return false;
     });
@@ -284,8 +301,7 @@ $(document).ready(function () {
                 stickyNavSetting();
             }
             //Dropdown list
-            $('.dropdown-toggle').attr('data-toggle', 'dropdown');
-            $('.dropdown-toggle').click(function () {
+            $('.dropdown-toggle').click(function() {
                 if ($(this).hasClass('open')) {
                     $(this).removeClass('open');
                 } else {
@@ -296,7 +312,6 @@ $(document).ready(function () {
             if ($('#navbar-collapse-1').hasClass('in')) {
                 $('#navbar-collapse-1').removeClass('in');
             }
-            $('.dropdown-toggle').attr('data-toggle', '');
 
             if ($('#navigation').hasClass('sticky')) {
                 var navHeight = 0;
@@ -349,11 +364,6 @@ $(document).ready(function () {
             var windowWidth = $(window).width();
             var breakpoint = window.GRID_FLOAT_BREAKPOINT || 768;
             setMainMarginTopBottom();
-            if (windowWidth < breakpoint) {
-                $menuAnchor.attr('data-toggle', 'dropdown');
-            } else {
-                $menuAnchor.attr('data-toggle', '');
-            }
             if (!window.STICKYNAV_DISABLED) {
                 stickyNavBar(forceRecalculate);
                 stickyBannerBar();
@@ -375,7 +385,7 @@ $(document).ready(function () {
     }
 
     $(document).on('show.bs.modal', '.image-modal', centerModal);
-    $(window).on('resize', function () {
+    $(window).on('resize', function() {
         $('.image-modal:visible').each(centerModal);
     });
 
@@ -383,7 +393,7 @@ $(document).ready(function () {
         sizeDependentMenuBehaviour();
     }
     $window.resize(sizeDependentMenuBehaviour);
-    $window.scroll(function () {
+    $window.scroll(function() {
         if (canBeStickyHeight()) {
             if (!window.STICKYNAV_DISABLED) {
                 /* Navbar minimization */
@@ -396,7 +406,7 @@ $(document).ready(function () {
             }
         }
     });
-    document.body.addEventListener('userLoggedin', function () {
+    document.body.addEventListener('userLoggedin', function() {
         sizeDependentMenuBehaviour(true);
     });
 
