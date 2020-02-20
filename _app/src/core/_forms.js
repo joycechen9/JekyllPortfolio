@@ -61,19 +61,25 @@ if (targetFormVerify) {
 
 // Forms
 // Logic to embed non-iframe worm.
-// const targetEmbedCustomForms = document.getElementsByClassName('app-forms-embed-custom');
-// if (targetEmbedCustomForms.length) {
-//     for (var i = 0; i < targetEmbedCustomForms.length; i++) {
-//         ReactDOM.render(
-//             <CoreProvider store={store}>
-//                 <Forms.Components.RenderForm
-//                     params={{
-//                         nid: targetEmbedCustomForms[i].getAttribute('data-formid'),
-//                         lang: targetEmbedCustomForms[i].getAttribute('data-lang'),
-//                     }}
-//                 />
-//             </CoreProvider>,
-//             targetEmbedCustomForms[i],
-//         );
-//     }
-// }
+const targetEmbedCustomForms = document.getElementsByClassName(
+    'app-forms-embed-custom'
+);
+if (targetEmbedCustomForms.length) {
+    for (var i = 0; i < targetEmbedCustomForms.length; i++) {
+        ReactDOM.render(
+            <CoreProvider store={store}>
+                <Forms.Components.RenderForm
+                    params={{
+                        nid: targetEmbedCustomForms[i].getAttribute(
+                            'data-formid'
+                        ),
+                        lang: targetEmbedCustomForms[i].getAttribute(
+                            'data-lang'
+                        ),
+                    }}
+                />
+            </CoreProvider>,
+            targetEmbedCustomForms[i]
+        );
+    }
+}
