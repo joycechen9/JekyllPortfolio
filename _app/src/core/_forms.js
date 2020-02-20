@@ -67,7 +67,7 @@ const targetEmbedCustomForms = document.getElementsByClassName(
 if (targetEmbedCustomForms.length) {
     for (var i = 0; i < targetEmbedCustomForms.length; i++) {
         ReactDOM.render(
-            <CoreProvider store={store}>
+            <CoreProvider store={store} client={client}>
                 <Forms.Components.RenderForm
                     params={{
                         nid: targetEmbedCustomForms[i].getAttribute(
