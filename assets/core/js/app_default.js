@@ -411,7 +411,7 @@ $(document).ready(function() {
     });
 
     // Init OICR Parent Nav
-    if (window.APP_CONFIG.OICR_PARENT_NAV_URL) {
+    if (window.APP_CONFIG && window.APP_CONFIG.OICR_PARENT_NAV_URL) {
         oicrParentNav.init({ onClick: setMainMarginTopBottom });
     }
 });
