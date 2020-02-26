@@ -20,12 +20,30 @@
     {% capture img %}{% include core/image.inc image=item wrapper="image-float-left" modal=true %}{% endcapture %}
     {% assign c = c | replace: token, img %}
 
-    {% for item in site._weblinks %}
-        {% capture token %}[LINK{{ item.path }}]{% endcapture %}
-        {% capture weblink %}{% include core/weblink.inc weblink=item %}{% endcapture %}
-        {% assign c = c | replace: token, weblink %}
-    {% endfor %}
-
+    {% comment %}Image Only Path{% endcomment %}
+    {% capture token %}[IMAGE_PATH{{ item.path }}]{% endcapture %}
+    {% assign c = c | replace: token, item.file.src %}
 {% endfor %}
+
+{% for item in site._weblinks %}
+    {% capture token %}[LINK{{ item.path }}]{% endcapture %}
+    {% capture weblink %}{% include core/weblink.inc weblink=item %}{% endcapture %}
+    {% assign c = c | replace: token, weblink %}
+{% endfor %}
+
+{% for item in site._files %}
+    {% comment %}Image Only Path{% endcomment %}
+    {% capture token %}[FILE_PATH{{ item.path }}]{% endcapture %}
+    {% assign c = c | replace: token, item.file.src %}
+{% endfor %}
+
+{% for item in site._privateFiles %}
+    {% comment %}Image Only Path{% endcomment %}
+    {% capture token %}[PRIVATE_FILE_PATH{{ item.path }}]{% endcapture %}
+    {% assign c = c | replace: token, item.file.src %}
+{% endfor %}
+
+{% assign filePath = site.filePath | prepend: "//" %}
+{% assign c = c | replace: "[SITE_LFS-SERVER-TOKEN]", filePath %}
 
 {{ c | normalize_whitespace | remove: '<p> ' | remove: ' </p>'}}
