@@ -63,6 +63,7 @@ module.exports = env => {
         new webpack.ProvidePlugin({
             $: 'jquery',
             jQuery: 'jquery',
+            Popper: 'popper.js',
         }),
     ];
     // Production
