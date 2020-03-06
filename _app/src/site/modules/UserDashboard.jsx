@@ -1,14 +1,8 @@
 import React from 'react';
-import { Core, Forms, UMS } from 'oicr-ui-core';
-import * as ImportExportDashboard from './importExport';
+import { Core, UMS } from 'oicr-ui-core';
 
 const { Dashboard } = Core.Components;
 const { UserAccountDashboard } = UMS.Dashboard;
-const { OPERATOR, ADMINISTRATOR } = UMS.CONSTANTS.ROLES;
-
-const {
-    ContentManagementDashboard,
-} = Core.Dashboard;
 
 class UserDashboard extends React.Component {
     render() {
