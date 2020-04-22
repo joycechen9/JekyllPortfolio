@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "oicr-ui-core": "git+ssh://git@github.com/webdev-dev/webdev_oicr-ui-core.git#react16",
+    "popper.js": "^1.16.1",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-lazyload": "^2.6.2",
