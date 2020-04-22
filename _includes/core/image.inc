@@ -11,7 +11,7 @@
 {% elsif include.wrapper or image.headlineCaption_txt and image.headlineCaption_txt != '' %}
     {% if include.modal %}
         <div class="embedded-image-collection {{ include.wrapper }}" data-image-path="{{ image.path }}" data-permalink="/images/{{ image.slug }}">
-            <button type="button" class="image-wrapper image-with-modal-wrapper" data-toggle="modal" data-target="#{{ image.slug }}-modal">
+            <button type="button" class="image-wrapper image-with-modal-wrapper" data-toggle="modal" data-target="#modal-{{ image.slug }}">
                 <span class="icon icon-zoom"><i class="fas fa-search-plus"></i></span>
                 <img src="{{ image.file.src }}" {% if include.className %}class="{{ include.className }}"{% endif %} {% if include.skipAccesible %}role="presentation"{% else %}alt="{{ image.alt_txt }}"{% endif %} />
             </button>
@@ -21,7 +21,7 @@
                 </div>
             {% endif %}
         </div>
-        <div class="modal fade image-modal" id="{{ image.slug }}-modal" tabindex="-1" role="dialog" aria-labelledby="{{ image.slug }}-modal">
+        <div class="modal fade image-modal" id="modal-{{ image.slug }}" tabindex="-1" role="dialog" aria-labelledby="modal-{{ image.slug }}">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-body">
@@ -48,12 +48,12 @@
 {% else %}
     {% if include.modal %}
         <div class="embedded-image-collection" data-image-path="{{ image.path }}" data-permalink="/images/{{ image.slug }}">
-            <button type="button" class="image-wrapper image-with-modal-wrapper" data-toggle="modal" data-target="#{{ image.slug }}-modal">
+            <button type="button" class="image-wrapper image-with-modal-wrapper" data-toggle="modal" data-target="#modal-{{ image.slug }}">
                 <span class="icon icon-zoom"><i class="fas fa-search-plus"></i></span>
                 <img src="{{ image.file.src }}" {% if include.className %}class="{{ include.className }}"{% endif %} {% if include.skipAccesible %}role="presentation"{% else %}alt="{{ image.alt_txt }}"{% endif %} />
             </button>
         </div>
-        <div class="modal fade image-modal" id="{{ image.slug }}-modal" tabindex="-1" role="dialog" aria-labelledby="{{ image.slug }}-modal">
+        <div class="modal fade image-modal" id="modal-{{ image.slug }}" tabindex="-1" role="dialog" aria-labelledby="modal-{{ image.slug }}">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-body">
