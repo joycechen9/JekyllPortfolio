@@ -12,7 +12,7 @@
     {% if include.modal %}
         <div class="embedded-image-collection {{ include.wrapper }}" data-image-path="{{ image.path }}" data-permalink="/images/{{ image.slug }}">
             <button type="button" class="image-wrapper image-with-modal-wrapper" data-toggle="modal" data-target="#{{ image.slug }}-modal">
-                <span class="icon icon-zoom"></span>
+                <span class="icon icon-zoom"><i class="fas fa-search-plus"></i></span>
                 <img src="{{ image.file.src }}" {% if include.className %}class="{{ include.className }}"{% endif %} {% if include.skipAccesible %}role="presentation"{% else %}alt="{{ image.alt_txt }}"{% endif %} />
             </button>
             {% if image.headlineCaption_txt and image.headlineCaption_txt!= '' %}
@@ -26,7 +26,7 @@
                 <div class="modal-content">
                     <div class="modal-body">
                         <div class="image-modal-wrapper">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove"></button>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="far fa-times-circle"></i></button>
                             <img src="{{ image.file.src }}" alt="{{ image.alt_txt }}" />
                         </div>
                     </div>
@@ -49,7 +49,7 @@
     {% if include.modal %}
         <div class="embedded-image-collection" data-image-path="{{ image.path }}" data-permalink="/images/{{ image.slug }}">
             <button type="button" class="image-wrapper image-with-modal-wrapper" data-toggle="modal" data-target="#{{ image.slug }}-modal">
-                <span class="icon icon-zoom"></span>
+                <span class="icon icon-zoom"><i class="fas fa-search-plus"></i></span>
                 <img src="{{ image.file.src }}" {% if include.className %}class="{{ include.className }}"{% endif %} {% if include.skipAccesible %}role="presentation"{% else %}alt="{{ image.alt_txt }}"{% endif %} />
             </button>
         </div>
@@ -58,7 +58,7 @@
                 <div class="modal-content">
                     <div class="modal-body">
                         <div class="image-modal-wrapper">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><img src="/assets/site/images/icon-cancel.svg" class="icon-cancel"></button>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="far fa-times-circle"></i></button>
                             <img src="{{ image.file.src }}" alt="{{ image.alt_txt }}" />
                         </div>
                     </div>

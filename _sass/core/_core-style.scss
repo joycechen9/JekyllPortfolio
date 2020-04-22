@@ -362,17 +362,8 @@
         top: 1px;
         width: 30px;
         display: inline-block;
-        font-family: 'Glyphicons Halflings';
-        font-style: normal;
-        font-weight: normal;
-        font-size: 1.1em;
         line-height: 1;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
         color: #a9adc0;
-        &:before {
-            content: '\e015';
-        }
     }
 }
 
@@ -520,21 +511,7 @@
                 border-radius: 50%;
                 opacity: 1;
                 text-align: center;
-                width: 24px;
-                height: 24px;
                 color: $primary;
-
-                &:hover {
-                    // color: $primary-hover;
-                }
-
-                .icon-cancel {
-                    width: 30px;
-                    opacity: 0.8;
-                    padding: 0px;
-                    background-color: transparent;
-                    border-radius: 0px;
-                }
             }
 
             img {

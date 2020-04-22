@@ -8,8 +8,8 @@
 <link rel="stylesheet" href="/assets/dist/css/app.bundle.css?{{ 'now' | date: '%s' }}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.9.1/css/froala_style.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.9.1/css/froala_editor.pkgd.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 <script>var greptchaToggle = function () { };</script>
 <script src="https://www.google.com/recaptcha/api.js?render=explicit" async defer></script>
 <script src="/assets/site/js/env_theme.js?{{ "now" | date: "%s" }}"></script>
+<script src="https://kit.fontawesome.com/3a532433ca.js" crossorigin="anonymous"></script>
