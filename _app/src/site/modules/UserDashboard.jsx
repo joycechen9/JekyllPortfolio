@@ -11,7 +11,7 @@ class UserDashboard extends React.Component {
                 id="forms-user-dashboard"
                 className="clearfix"
                 defaultActiveKey={2.1}
-                rootPath="/dashboard"
+                rootPath="dashboard"
             >
                 <Dashboard.Item eventKey={2} component={UserAccountDashboard} />
             </Dashboard>
