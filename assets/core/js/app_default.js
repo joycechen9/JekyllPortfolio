@@ -1,5 +1,5 @@
-$(document).ready(function() {
-    (function() {
+$(document).ready(function () {
+    (function () {
         if (
             '-ms-user-select' in document.documentElement.style &&
             navigator.userAgent.match(/IEMobile/)
@@ -47,28 +47,30 @@ $(document).ready(function() {
             return e;
         }
         return {
-            init: function(opt) {
+            init: function (opt) {
                 var baseURL = window.APP_CONFIG.OICR_PARENT_NAV_URL;
-                var iframe = `<ifr${''}ame id=\"oicr-parent-nav\" style=\"transition: bottom .2s; position: absolute; z-index: 900; bottom: calc(100% - ${BOTTOM_OFFSET +
-                    NAV_BOTTOM}px); \" src=\"${baseURL}\" name=\"\" frameBorder=\"0\" scrolling=\"no\" width=\"100%\"></ifr${''}ame>`;
+                var iframe = `<ifr${''}ame id=\"oicr-parent-nav\" style=\"transition: bottom .2s; position: absolute; z-index: 900; bottom: calc(100% - ${
+                    BOTTOM_OFFSET + NAV_BOTTOM
+                }px); \" src=\"${baseURL}\" name=\"\" frameBorder=\"0\" scrolling=\"no\" width=\"100%\"></ifr${''}ame>`;
                 var $element = $(iframe);
                 document.body.prepend($element.get(0));
                 // Listen post message from iframe.
-                $(window).on('message onmessage', function(e) {
+                $(window).on('message onmessage', function (e) {
                     if (e.originalEvent && e.originalEvent.data) {
                         try {
                             const data = JSON.parse(e.originalEvent.data);
                             if (data.type === 'oicr-global-nav-click') {
                                 if (data.open) {
                                     $element.css({
-                                        bottom: `calc(100% - ${BOTTOM_OFFSET +
-                                            NAV_BOTTOM +
-                                            NAV_TOP}px)`,
+                                        bottom: `calc(100% - ${
+                                            BOTTOM_OFFSET + NAV_BOTTOM + NAV_TOP
+                                        }px)`,
                                     });
                                 } else {
                                     $element.css({
-                                        bottom: `calc(100% - ${BOTTOM_OFFSET +
-                                            NAV_BOTTOM}px)`,
+                                        bottom: `calc(100% - ${
+                                            BOTTOM_OFFSET + NAV_BOTTOM
+                                        }px)`,
                                     });
                                 }
                                 isOpen = data.open;
@@ -79,14 +81,14 @@ $(document).ready(function() {
                 });
                 initialized = true;
             },
-            getElementHeight: function() {
+            getElementHeight: function () {
                 if (!initialized) return 0;
                 return isOpen ? NAV_TOP + NAV_BOTTOM : NAV_BOTTOM;
             },
-            getElement: function() {
+            getElement: function () {
                 return $element;
             },
-            getButton: function() {
+            getButton: function () {
                 return $button;
             },
         };
@@ -173,11 +175,11 @@ $(document).ready(function() {
         }
     }
 
-    $(document).ready(function() {
+    $(document).ready(function () {
         var closedBanner = getClosedBannerListCookie();
 
         if ($('.banner.banner-dismissible')) {
-            $('.banner.banner-dismissible').each(function() {
+            $('.banner.banner-dismissible').each(function () {
                 if (
                     closedBanner &&
                     closedBanner.length &&
@@ -199,13 +201,15 @@ $(document).ready(function() {
 
         setMainMarginTopBottom();
 
-        $('.banner-dismiss').click(function() {
+        $('.banner-dismiss').click(function () {
             var target = $(this).data('target');
 
             var bannerCookie = getClosedBannerListCookie() || [];
             setClosedBannerListCookie(bannerCookie.concat([target]));
             $(`#${target}`).remove();
             setMainMarginTopBottom();
+
+            $(document).trigger('bannerDismiss');
 
             // var checkbox = $(`#${target} .dismiss-check`);
             // if (checkbox) $(checkbox).addClass('checked');
@@ -254,7 +258,7 @@ $(document).ready(function() {
 
     backToTop();
 
-    $('#backToTop').click(function() {
+    $('#backToTop').click(function () {
         $('html, body').animate({ scrollTop: 0 }, 600);
         return false;
     });
@@ -272,11 +276,13 @@ $(document).ready(function() {
             'padding-top',
             `${$('#navigation').outerHeight()}px`
         );
+        $(document).trigger('stickyNav');
     }
 
     function unStickyNavSetting() {
         $('#navigation').removeClass('sticky');
         $('#main-website-area').css('padding-top', '0');
+        $(document).trigger('unstickyNav');
     }
 
     function canBeStickyHeight() {
@@ -301,7 +307,7 @@ $(document).ready(function() {
                 stickyNavSetting();
             }
             //Dropdown list
-            $('.dropdown-toggle').click(function() {
+            $('.dropdown-toggle').click(function () {
                 if ($(this).hasClass('open')) {
                     $(this).removeClass('open');
                 } else {
@@ -385,7 +391,7 @@ $(document).ready(function() {
     }
 
     $(document).on('show.bs.modal', '.image-modal', centerModal);
-    $(window).on('resize', function() {
+    $(window).on('resize', function () {
         $('.image-modal:visible').each(centerModal);
     });
 
@@ -393,7 +399,7 @@ $(document).ready(function() {
         sizeDependentMenuBehaviour();
     }
     $window.resize(sizeDependentMenuBehaviour);
-    $window.scroll(function() {
+    $window.scroll(function () {
         if (canBeStickyHeight()) {
             if (!window.STICKYNAV_DISABLED) {
                 /* Navbar minimization */
@@ -406,7 +412,7 @@ $(document).ready(function() {
             }
         }
     });
-    document.body.addEventListener('userLoggedin', function() {
+    document.body.addEventListener('userLoggedin', function () {
         sizeDependentMenuBehaviour(true);
     });
 
