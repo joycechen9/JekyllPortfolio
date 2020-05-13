@@ -4,12 +4,20 @@ import ReactDOM from 'react-dom';
 import { Router, hashHistory } from 'react-router';
 import { Members, Provider as CoreProvider, Core } from 'oicr-ui-core';
 
+if (window.MEMBERS_CONFIG) Members.setConfig(window.MEMBERS_CONFIG);
+
 const { transformJSON } = Members.helpers;
 
 // Load store.
 const store = require('../site/store').default;
 
 const client = Core.initApolloClient(true, store);
+
+const { attributesSelector } = Core.selectors;
+const { getPageContent } = Core.actions;
+
+// Get page content.
+getPageContent('__modules/app.md')(store.dispatch);
 
 // Render Members
 const targetMembers = document.getElementById('app-members');
@@ -35,7 +43,11 @@ if (targetMembers) {
     }
 
     ReactDOM.render(
-        <CoreProvider store={store} client={client}>
+        <CoreProvider
+            store={store}
+            client={client}
+            selector={attributesSelector('__modules/app.md')}
+        >
             <Router history={hashHistory}>
                 <Members.BaseRoutes
                     isStatic={!!staticMembers && !!staticPubs}

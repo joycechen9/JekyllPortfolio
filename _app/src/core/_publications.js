@@ -4,12 +4,21 @@ import ReactDOM from 'react-dom';
 import { Router, hashHistory } from 'react-router';
 import { Publications, Provider as CoreProvider, Core } from 'oicr-ui-core';
 
+if (window.PUBLICATIONS_CONFIG)
+    Publications.setConfig(window.PUBLICATIONS_CONFIG);
+
 const { transformJSON } = Publications.helpers;
 
 // Load store.
 const store = require('../site/store').default;
 
 const client = Core.initApolloClient(true, store);
+
+const { attributesSelector } = Core.selectors;
+const { getPageContent } = Core.actions;
+
+// Get page content.
+getPageContent('__modules/app.md')(store.dispatch);
 
 // Render Publications
 const targetPublications = document.getElementById('app-publications');
@@ -35,7 +44,11 @@ if (targetPublications) {
     }
 
     ReactDOM.render(
-        <CoreProvider store={store} client={client}>
+        <CoreProvider
+            store={store}
+            client={client}
+            selector={attributesSelector('__modules/app.md')}
+        >
             <Router history={hashHistory}>
                 <Publications.BaseRoutes
                     isStatic={!!staticMembers && !!staticPubs}
