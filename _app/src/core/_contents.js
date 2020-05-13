@@ -7,6 +7,12 @@ import store from '../site/store';
 
 const client = Core.initApolloClient(true, store);
 
+const { attributesSelector } = Core.selectors;
+const { getPageContent } = Core.actions;
+
+// Get page content.
+getPageContent('__modules/app.md')(store.dispatch);
+
 /**
  * Content Preview
  */
@@ -14,7 +20,11 @@ const client = Core.initApolloClient(true, store);
 const contents = document.getElementById('app-contents');
 if (contents) {
     ReactDOM.render(
-        <CoreProvider store={store} client={client}>
+        <CoreProvider
+            store={store}
+            client={client}
+            selector={attributesSelector('__modules/app.md')}
+        >
             <Router history={hashHistory}>
                 <Route
                     path="/preview/"
