@@ -43,7 +43,11 @@
     {% assign c = c | replace: token, item.file.src %}
 {% endfor %}
 
-{% assign filePath = site.filePath | prepend: "https://" %}
+{% if site.filePath contains "https" or site.filePath contains "http" or site.filePath contains "//" %}
+    {% assign filePath = site.filePath %}
+{% else %}
+    {% assign filePath = site.filePath | prepend: "https://" %}
+{% endif %}
 {% assign c = c | replace: "[SITE_LFS-SERVER-TOKEN]", filePath %}
 
 {{ c | normalize_whitespace | remove: '<p> ' | remove: ' </p>'}}
