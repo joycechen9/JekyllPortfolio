@@ -70,8 +70,8 @@ if (config.CMUI_ENABLED) {
             >
                 <Core.Components.ContentPageWrapper
                     viewDOM={targetEditable.innerHTML}
-                    rootPath="/user/#/dashboard"
-                    eventKey={3}
+                    rootPath="/user/#/admin/dashboard"
+                    eventKey={4}
                     path={targetEditable.getAttribute('data-path')}
                     isPublic={targetEditable.getAttribute('data-is-public')}
                 />
