@@ -54,6 +54,21 @@ if (targetUserMenu) {
     );
 }
 
+// Render User Login
+const targetUserLogin = document.getElementById('app-user-login');
+if (targetUserLogin) {
+    ReactDOM.render(
+        <CoreProvider
+            store={store}
+            client={client}
+            selector={attributesSelector('__modules/app.md')}
+        >
+            <UMS.Components.LoginButton rootPath="/user" />
+        </CoreProvider>,
+        targetUserLogin
+    );
+}
+
 /**
  * Render view/edit tab for admin user.
  * This will be rendered after pubmed publications are rendered.
