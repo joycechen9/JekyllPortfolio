@@ -11,7 +11,7 @@ ruby RUBY_VERSION
 # If you have any plugins, put them here!
 group :jekyll_plugins do
    gem "sinatra"
-   gem "jekyll"
+   gem "jekyll", "~> 3.6"
    gem "liquid"
    gem "safe_yaml"
    gem "kramdown"
