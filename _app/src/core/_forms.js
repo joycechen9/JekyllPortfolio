@@ -77,6 +77,19 @@ if (targetFormVerify) {
 }
 
 // Forms
+const targetFormModeration = document.getElementById('app-forms-moderation');
+if (targetFormModeration) {
+    ReactDOM.render(
+        <CoreProvider store={store} client={client}>
+            <Router history={hashHistory}>
+                <Forms.ModerationRoutes client={client} />
+            </Router>
+        </CoreProvider>,
+        targetFormModeration
+    );
+}
+
+// Forms
 // Logic to embed non-iframe worm.
 const targetEmbedCustomForms = document.getElementsByClassName(
     'app-forms-embed-custom'
