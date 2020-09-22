@@ -18,7 +18,7 @@ const moduleExclude = new RegExp(
 let webpackConfig = (env, config) => config;
 try {
     webpackConfig = require('../site/webpack.config.js');
-} catch (e) {}
+} catch (e) { }
 
 module.exports = env => {
     /**
@@ -112,7 +112,7 @@ module.exports = env => {
             publicPath: '/assets/dist/js/',
         },
         resolve: {
-            extensions: ['.js', '.jsx', '.yaml'],
+            extensions: ['.js', '.jsx', '.tsx', '.yaml'],
         },
         devtool: env.dev ? 'source-map' : '',
         module: {
@@ -162,6 +162,11 @@ module.exports = env => {
                     test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
                     loader: 'url-loader?limit=10000&mimetype=image/svg+xml',
                 },
+                {
+                    test: /\.tsx?$/,
+                    use: 'ts-loader',
+                    exclude: /node_modules/
+                }
             ],
         },
         plugins,
