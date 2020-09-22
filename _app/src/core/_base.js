@@ -3,13 +3,20 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { FormattedDateRange } from 'wfui-react';
 import { extLink } from 'wfui-react/lib/util';
-import { setAllConfigs } from 'oicr-ui-core';
+import { Core, setAllConfigs, Provider as CoreProvider } from 'oicr-ui-core';
 import 'popper.js/dist/umd/popper';
+import SystemInfo from './modules/SystemInfo.tsx';
+
+const { getPageContent } = Core.actions;
+const { attributesSelector } = Core.selectors;
 
 /**
  * Set default app configration
  * */
 setAllConfigs(window.APP_CONFIG);
+
+const store = require('../site/store').default;
+const client = Core.initApolloClient(true, store);
 
 /**
  * Set external link
@@ -62,4 +69,22 @@ if (targetTimeConversionRange.length) {
             el
         );
     }
+}
+
+const targetSiteInfo = document.getElementById('app-siteinfo');
+if (targetSiteInfo) {
+
+    // Get page content.
+    getPageContent('__modules/footer.md')(store.dispatch).then((data) => {
+        ReactDOM.render(
+            <CoreProvider
+                store={store}
+                client={client}
+                selector={attributesSelector('__modules/footer.md')}
+            >
+                <SystemInfo data={data} />
+            </CoreProvider>,
+            targetSiteInfo
+        );
+    });
 }
