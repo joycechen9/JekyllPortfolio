@@ -12,7 +12,8 @@
         <div id="editButton" data-path="{{ page.path }}" data-is-public="{{ page.isPublic_b }}"></div>
         {% include core/token_replace.inc content=content %}
         {% include core/back_to_top.inc %}
-        {% include site/footer.inc %}
+        {% include core/footer.inc %}
+        {% comment %}{% include site/footer.inc %}{% endcomment %}
     </div>
     {% comment %}{% include core/banner.inc position='bottom' %}{% endcomment %}
     {% include core/footer_scripts.inc %}
