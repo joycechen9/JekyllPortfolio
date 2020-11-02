@@ -159,9 +159,11 @@ $(document).ready(function () {
     }
 
     function getBannerTopHeight() {
-        return $('#banner-top-container')
+        var bannerTopMargin = $('#banner-top-container')
             ? $('#banner-top-container').outerHeight()
             : 0;
+        var oicrParentNavHeight = oicrParentNav.getElementHeight();
+        return bannerTopMargin + oicrParentNavHeight;
     }
 
     function stickyBannerBar() {
