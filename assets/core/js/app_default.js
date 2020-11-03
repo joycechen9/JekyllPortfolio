@@ -271,8 +271,9 @@ $(document).ready(function () {
     var $menuAnchor = $('#nav-main-menu .dropdown-toggle');
 
     function stickyNavSetting() {
+        var sctop = window.STICKY_SCROLL_TOP || 0;
         $('#navigation').addClass('sticky');
-        $('#navigation').css('top', `${getBannerTopHeight()}px`);
+        $('#navigation').css('top', `${getBannerTopHeight() + ($(document).scrollTop() > sctop ? 0 : oicrParentNav.getElementHeight())}px`);
         $('#main-website-area').css(
             'padding-top',
             `${$('#navigation').outerHeight()}px`
