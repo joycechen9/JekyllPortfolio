@@ -143,8 +143,9 @@ $(document).ready(function () {
         var bannerBottomMargin = $('#banner-bottom-container')
             ? $('#banner-bottom-container').outerHeight()
             : 0;
+        var sctop = window.STICKY_SCROLL_TOP || 0;
 
-        var oicrParentNavHeight = oicrParentNav.getElementHeight();
+        var oicrParentNavHeight = $(document).scrollTop() > sctop ? 0 : oicrParentNav.getElementHeight();
 
         $('#main-website-area').css(
             'margin-top',
@@ -159,11 +160,9 @@ $(document).ready(function () {
     }
 
     function getBannerTopHeight() {
-        var bannerTopMargin = $('#banner-top-container')
+        return $('#banner-top-container')
             ? $('#banner-top-container').outerHeight()
             : 0;
-        var oicrParentNavHeight = oicrParentNav.getElementHeight();
-        return bannerTopMargin + oicrParentNavHeight;
     }
 
     function stickyBannerBar() {
@@ -300,13 +299,24 @@ $(document).ready(function () {
         var sctop = window.STICKY_SCROLL_TOP || 0;
 
         if (windowWidth < alwaysSticky || $(document).scrollTop() > sctop) {
-            $('#navigation').css('top', `${getBannerTopHeight()}px`);
-            if (
-                !$('#navigation').hasClass('sticky') ||
-                $('#navigation').scrollTop() ||
-                forceRecalculate
-            ) {
-                stickyNavSetting();
+            if ($(document).scrollTop() > sctop){
+                $('#navigation').css('top', `${getBannerTopHeight()}px`);
+                if (
+                    !$('#navigation').hasClass('sticky') ||
+                    $('#navigation').scrollTop() ||
+                    forceRecalculate
+                ) {
+                    stickyNavSetting();
+                }
+            } else {
+                $('#navigation').css('top', `${getBannerTopHeight() + oicrParentNav.getElementHeight()}px`);
+                if (
+                    !$('#navigation').hasClass('sticky') ||
+                    $('#navigation').scrollTop() ||
+                    forceRecalculate
+                ) {
+                    stickyNavSetting();
+                }
             }
             //Dropdown list
             $('.dropdown-toggle').click(function () {
