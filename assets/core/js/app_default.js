@@ -43,17 +43,16 @@ $(document).ready(function () {
         var $button;
         var isOpen = false;
         var initialized = false;
+        var isMobile = false;
         function onClick(e) {
             return e;
         }
         return {
             init: function (opt) {
                 var baseURL = window.APP_CONFIG.OICR_PARENT_NAV_URL;
-                var iframe = `<ifr${''}ame id=\"oicr-parent-nav\" style=\"transition: bottom .2s; position: absolute; z-index: 900; bottom: calc(100% - ${
-                    BOTTOM_OFFSET + NAV_BOTTOM
-                }px); \" src=\"${baseURL}\" name=\"\" frameBorder=\"0\" scrolling=\"no\" width=\"100%\"></ifr${''}ame>`;
+                var iframe = '<ifr'+ '' +'ame id=\"oicr-parent-nav\" style=\"transition: bottom .2s; position: absolute; z-index: 900; bottom: calc(100% - ' + (BOTTOM_OFFSET + NAV_BOTTOM) + 'px); \" src=\"' + baseURL + '\" name=\"\" frameBorder=\"0\" scrolling=\"no\" width=\"100%\"></ifr'+ '' +'ame>';
                 var $element = $(iframe);
-                document.body.prepend($element.get(0));
+                $('#oicr-parent-nav').replaceWith($element.get(0));
                 // Listen post message from iframe.
                 $(window).on('message onmessage', function (e) {
                     if (e.originalEvent && e.originalEvent.data) {
@@ -61,28 +60,29 @@ $(document).ready(function () {
                             const data = JSON.parse(e.originalEvent.data);
                             if (data.type === 'oicr-global-nav-click') {
                                 if (data.open) {
-                                    $element.css({
-                                        bottom: `calc(100% - ${
-                                            BOTTOM_OFFSET + NAV_BOTTOM + NAV_TOP
-                                        }px)`,
-                                    });
+                                    $element.css({ bottom: 'calc(100% - ' + (BOTTOM_OFFSET + NAV_BOTTOM + NAV_TOP) + 'px)' });
                                 } else {
-                                    $element.css({
-                                        bottom: `calc(100% - ${
-                                            BOTTOM_OFFSET + NAV_BOTTOM
-                                        }px)`,
-                                    });
+                                    $element.css({ bottom: 'calc(100% - ' + (BOTTOM_OFFSET + NAV_BOTTOM) + 'px)' });
                                 }
                                 isOpen = data.open;
-                                opt.onClick(e);
+                                opt.onClick(e)
                             }
-                        } catch (e) {}
+                        } catch (e) { }
                     }
-                });
+                })
+                $(window).on('resize', function (e){
+                    isMobile = $(window).width() < 768;
+                    if(isMobile) {
+                        $element.css({ bottom: 'calc(100% - ' + (BOTTOM_OFFSET + NAV_BOTTOM) + 'px)' });
+                    } else if (isOpen && !isMobile) {
+                        $element.css({ bottom: 'calc(100% - ' + (BOTTOM_OFFSET + NAV_BOTTOM + NAV_TOP) + 'px)' });
+                    }
+                })
                 initialized = true;
             },
             getElementHeight: function () {
                 if (!initialized) return 0;
+                if (isMobile) return NAV_BOTTOM;
                 return isOpen ? NAV_TOP + NAV_BOTTOM : NAV_BOTTOM;
             },
             getElement: function () {
@@ -90,8 +90,8 @@ $(document).ready(function () {
             },
             getButton: function () {
                 return $button;
-            },
-        };
+            }
+        }
     }
     var oicrParentNav = OICRParentNav();
 
@@ -433,7 +433,7 @@ $(document).ready(function () {
     });
 
     // Init OICR Parent Nav
-    if (window.APP_CONFIG && window.APP_CONFIG.OICR_PARENT_NAV_URL && !document.body.classList.contains('no-parent-nav')) {
+    if (window.APP_CONFIG && window.APP_CONFIG.OICR_PARENT_NAV_URL && $('#oicr-parent-nav').length) {
         oicrParentNav.init({ onClick: setMainMarginTopBottom });
     }
 });
