@@ -156,7 +156,7 @@ $(document).ready(function () {
             'top',
             `${bannerTopMargin + oicrParentNavHeight}px`
         );
-        $('#banner-top-container').css('top', `${oicrParentNavHeight}px`);
+        if ($('#banner-top-container')) $('#banner-top-container').css('top', `${oicrParentNavHeight}px`);
     }
 
     function getBannerTopHeight() {
@@ -166,13 +166,15 @@ $(document).ready(function () {
     }
 
     function stickyBannerBar() {
-        if ($(document).scrollTop() > 0) {
-            $('#banner-top-container').css({ top: '0px', 'z-index': 1000 });
-        } else {
-            $('#banner-top-container').css({
-                top: `${oicrParentNav.getElementHeight()}px`,
-                'z-index': 100,
-            });
+        if ($('#banner-top-container')) {
+            if ($(document).scrollTop() > 0) {
+                $('#banner-top-container').css({ top: '0px', 'z-index': 1000 });
+            } else {
+                $('#banner-top-container').css({
+                    top: `${oicrParentNav.getElementHeight()}px`,
+                    'z-index': 100,
+                });
+            }
         }
     }
 
@@ -431,7 +433,7 @@ $(document).ready(function () {
     });
 
     // Init OICR Parent Nav
-    if (window.APP_CONFIG && window.APP_CONFIG.OICR_PARENT_NAV_URL) {
+    if (window.APP_CONFIG && window.APP_CONFIG.OICR_PARENT_NAV_URL && !document.body.classList.contains('no-parent-nav')) {
         oicrParentNav.init({ onClick: setMainMarginTopBottom });
     }
 });
