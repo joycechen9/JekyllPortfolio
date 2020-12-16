@@ -38,7 +38,8 @@
 
     {% comment %}File Only Path{% endcomment %}
     {% capture token %}[FILE_PATH{{ item.path }}]{% endcapture %}
-    {% assign c = c | replace: token, item.file.src %}
+    {% assign src = item.file.src | uri_escape %}
+    {% assign c = c | replace: token, src %}
 {% endfor %}
 
 {% for item in site._privateFiles %}
