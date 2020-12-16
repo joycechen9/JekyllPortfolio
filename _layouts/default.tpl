@@ -10,7 +10,7 @@
     {% comment %}{% include core/banner.inc position='center' %}{% endcomment %}
     <div id="main-website-area">
         {% include site/nav.inc %}
-        < id="editButton" data-path="{{ page.path }}" data-is-public="{{ page.isPublic_b }}"></>
+        <div id="editButton" data-path="{{ page.path }}" data-is-public="{{ page.isPublic_b }}"></div>
         {% include core/token_replace.inc content=content %}
         {% include core/back_to_top.inc %}
         {% include core/footer.inc %}
