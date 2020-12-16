@@ -32,7 +32,11 @@
 {% endfor %}
 
 {% for item in site._files %}
-    {% comment %}Image Only Path{% endcomment %}
+    {% capture token %}[FILE{{ item.path }}]{% endcapture %}
+    {% capture img %}{% include core/file.inc file=item %}{% endcapture %}
+    {% assign c = c | replace: token, img %}
+
+    {% comment %}File Only Path{% endcomment %}
     {% capture token %}[FILE_PATH{{ item.path }}]{% endcapture %}
     {% assign c = c | replace: token, item.file.src %}
 {% endfor %}
