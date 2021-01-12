@@ -1,6 +1,7 @@
 require('babel-polyfill');
 const webpack = require('webpack');
 const path = require('path');
+const CryptoJS = require('crypto-js');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
@@ -18,9 +19,9 @@ const moduleExclude = new RegExp(
 let webpackConfig = (env, config) => config;
 try {
     webpackConfig = require('../site/webpack.config.js');
-} catch (e) { }
+} catch (e) {}
 
-module.exports = env => {
+module.exports = (env) => {
     /**
      * Augument entries with 'whatwg-fetch' and 'babel-polyfill'
      */
@@ -64,6 +65,14 @@ module.exports = env => {
             $: 'jquery',
             jQuery: 'jquery',
             Popper: 'popper.js',
+        }),
+        new webpack.DefinePlugin({
+            facl: JSON.stringify(
+                CryptoJS.AES.encrypt(
+                    JSON.stringify(formACL),
+                    '25432A46294A404E635266556A586E32'
+                ).toString()
+            ),
         }),
     ];
     // Production
@@ -165,8 +174,8 @@ module.exports = env => {
                 {
                     test: /\.tsx?$/,
                     use: 'ts-loader',
-                    exclude: /node_modules/
-                }
+                    exclude: /node_modules/,
+                },
             ],
         },
         plugins,
