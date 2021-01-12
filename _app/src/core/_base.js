@@ -75,16 +75,14 @@ const targetSiteInfo = document.getElementById('app-siteinfo');
 if (targetSiteInfo) {
 
     // Get page content.
-    getPageContent('__modules/footer.md')(store.dispatch).then((data) => {
-        ReactDOM.render(
-            <CoreProvider
-                store={store}
-                client={client}
-                selector={attributesSelector('__modules/footer.md')}
-            >
-                <SystemInfo data={data} />
-            </CoreProvider>,
-            targetSiteInfo
-        );
-    });
+    ReactDOM.render(
+        <CoreProvider
+            store={store}
+            client={client}
+            data={targetSiteInfo.getAttribute('data-system')}
+        >
+            <SystemInfo data={data} />
+        </CoreProvider>,
+        targetSiteInfo
+    );
 }

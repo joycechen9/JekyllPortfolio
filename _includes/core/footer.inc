@@ -1,4 +1,5 @@
 {% assign footer = site._modules | where:"slug", "footer" | first %}
+{% assign system = site._modules | where:"slug", "system" | first %}
 
 <footer>
 	<div class="site-footer">
@@ -64,7 +65,7 @@
                         {% endif %}
 					</div>
 				</div>
-                <div class="col-12" id="app-siteinfo"></div>
+                <div class="col-12" id="app-siteinfo" data-system={{ system | jsonify | escape }}></div>
 			</div>
 		</div>
 	</div>
