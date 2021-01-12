@@ -73,16 +73,19 @@ if (targetTimeConversionRange.length) {
 
 const targetSiteInfo = document.getElementById('app-siteinfo');
 if (targetSiteInfo) {
-
-    // Get page content.
-    ReactDOM.render(
-        <CoreProvider
-            store={store}
-            client={client}
-            data={targetSiteInfo.getAttribute('data-system')}
-        >
-            <SystemInfo data={data} />
-        </CoreProvider>,
-        targetSiteInfo
-    );
+    try {
+        // Get page content.
+        ReactDOM.render(
+            <CoreProvider store={store} client={client}>
+                <SystemInfo
+                    data={JSON.parse(
+                        targetSiteInfo.getAttribute('data-system')
+                    )}
+                />
+            </CoreProvider>,
+            targetSiteInfo
+        );
+    } catch (err) {
+        console.error(err);
+    }
 }

@@ -4,5 +4,6 @@ author: ''
 permalink: '/_modules/:name/'
 published: true
 isPublic_b: true
-# commitId: "COMMIT_ID"
+# info_obj:
+#     commitId: 'COMMIT_ID'
 ---

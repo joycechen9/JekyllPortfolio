@@ -14,11 +14,11 @@ interface Props {
 }
 
 const SystemInfo: React.FC<Props> = ({ isAdminOperator, data }) => {
-    if (!isAdminOperator || !data.commitId) return null;
+    if (!data || !isAdminOperator || !data.commitId) return null;
     return (
         <FormattedMessage
             id="footer.commitId_txt"
-            defaultMessage="Commit ID: ({commitId})"
+            defaultMessage="Last successful build: ({commitId})"
             values={{
                 commitId: data.commitId,
             }}
