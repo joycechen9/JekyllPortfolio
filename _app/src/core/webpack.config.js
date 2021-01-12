@@ -14,6 +14,7 @@ const transpiling = require('../../configs/transpiling');
 const moduleExclude = new RegExp(
     `node_modules/(?!(${transpiling.join('|')})/).*`
 );
+const formACL = require('../../configs/formACL');
 
 // Load custome webpack config
 let webpackConfig = (env, config) => config;
