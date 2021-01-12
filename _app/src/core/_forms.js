@@ -33,6 +33,7 @@ if (targetForms) {
             store={store}
             client={client}
             selector={attributesSelector('__modules/app.md')}
+            withoutDnd
         >
             <Router history={hashHistory}>
                 <Forms.BaseRoutes store={store} client={client} />

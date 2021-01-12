@@ -47,6 +47,7 @@ if (targetUserMenu) {
             store={store}
             client={client}
             selector={attributesSelector('__modules/app.md')}
+            withoutDnd
         >
             <UMS.Components.UserNavMenu rootPath="/user" />
         </CoreProvider>,
@@ -62,6 +63,7 @@ if (targetUserLogin) {
             store={store}
             client={client}
             selector={attributesSelector('__modules/app.md')}
+            withoutDnd
         >
             <UMS.Components.LoginButton rootPath="/user" />
         </CoreProvider>,
