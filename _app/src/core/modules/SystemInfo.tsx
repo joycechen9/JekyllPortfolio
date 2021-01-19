@@ -12,6 +12,7 @@ interface Props {
         commitId: string,
         buildTime: string,
     },
+    intl: object
 }
 
 const SystemInfo: React.FC<Props> = ({ isAdminOperator, data, intl }) => {
