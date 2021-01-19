@@ -12,8 +12,11 @@ interface Props {
         commitId: string,
         buildTime: string,
     },
-    intl: object
+    intl: {
+        formatDate: Function
+    }
 }
+
 
 const SystemInfo: React.FC<Props> = ({ isAdminOperator, data, intl }) => {
     if (!data || !isAdminOperator || !data.commitId || !data.buildTime) return null;
