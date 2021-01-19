@@ -31,7 +31,15 @@ if (target) {
             selector={attributesSelector('__modules/app.md')}
         >
             <Router history={hashHistory}>
-                <UMS.Route path="/dashboard" component={UserDashboard} />
+                <UMS.Route
+                    path="/dashboard"
+                    component={UserDashboard}
+                    innerComponentProps={{
+                        systemInfo: JSON.parse(
+                            target.getAttribute('data-system')
+                        ),
+                    }}
+                />
                 <UMS.BaseRoutes />
             </Router>
         </CoreProvider>,
