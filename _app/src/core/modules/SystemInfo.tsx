@@ -21,32 +21,35 @@ interface Props {
 const SystemInfo: React.FC<Props> = ({ isAdminOperator, data, intl }) => {
     if (!data || !isAdminOperator || !data.commitId || !data.buildTime) return null;
     return (
-        <React.Fragment>
-            <FormattedMessage
-                id="footer.commitId_txt"
-                defaultMessage="Last successful build: ({commitId})"
-                values={{
-                    commitId: data.commitId,
-                }}
-            />
-            {' '}
-            <FormattedMessage
-                id="footer.commitId_txt"
-                defaultMessage="Built at: {buildTime}"
-                values={{
-                    buildTime: intl.formatDate(
-                        new Date(
-                            data.buildTime
+        <div className="system-info">
+            <div className="system-info__last-commit">
+                <FormattedMessage
+                    id="footer.commitId_txt"
+                    defaultMessage="Last successful build: ({commitId})"
+                    values={{
+                        commitId: data.commitId,
+                    }}
+                />
+            </div>
+            <div className="system-info__build-at">
+                <FormattedMessage
+                    id="footer.commitId_txt"
+                    defaultMessage="Built at: {buildTime}"
+                    values={{
+                        buildTime: intl.formatDate(
+                            new Date(
+                                data.buildTime
+                            ),
+                            {
+                                month: 'short',
+                                day: '2-digit',
+                                year: 'numeric',
+                            }
                         ),
-                        {
-                            month: 'short',
-                            day: '2-digit',
-                            year: 'numeric',
-                        }
-                    ),
-                }}
-            />
-        </React.Fragment>
+                    }}
+                />
+            </div>
+        </div>
     );
 }
 
