@@ -13,7 +13,7 @@ about_list:
   content_txt: "I am a first year Mechanical Engineering major at the University of Waterloo. I have a passion for arts and design, as well as a background of fine arts education. My goal as a student is to combine my artistic passion with the science of creation so I have the tools to build systems of the future that are not only sustainable, but beautiful."
   qual_list:
     firstTitle_txt: "Skills"
-    first_list: >-
+    first_txt: >-
         - **Adobe:** Photoshop, Illustrator, Premiere Pro, Lightroom  
 
         - **CAD Software:** AutoCAD, Solidworks  
@@ -21,7 +21,7 @@ about_list:
         - **Programming:** HTML, CSS, Javascript, Jekyll, Git, Bootstrap  
 
     secondTitle_txt: "Education"
-    second_list: >-
+    second_txt: >-
         - **University of Waterloo:** Candidate for Bachelor of Applied Science, Honours Mechanical Engineering
 
         - **Earl Haig Secondary School:** Visual Arts Major, Claude Watson Art Program
@@ -30,11 +30,11 @@ about_list:
     thirdTitle_txt: "Hobbies"
     third_txt: " Drawing, painting, design, movies, reading, music "
 
-resume_txt:
+resume_list:
   title_txt: "My Resume"
   btn_txt: "RESUME"
 
-art_txt:
+art_list:
   title_txt: "ART"
   subtitle_txt: "I like to do some drawing, painting, graphic design, and sculpture!"
   btn_txt: "SEE MORE"
@@ -75,7 +75,7 @@ art_txt:
     desc_txt: "Pen and marker drawing"
     img_link: "assets/site/images/portfolio/portfolio-9.jpg"
 
-eng_txt:
+eng_list:
   title_txt: "ENGINEERING"
   subtitle_txt: "Take a look at some engineering design projects I've done:"
   one_txt: "Cell Phone Stand"
