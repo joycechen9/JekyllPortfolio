@@ -14,5 +14,5 @@ desc_txt: "*This project was a collaboration with my classmates Emily Folk, Kais
 The purpose of the dynamometer is to measure the torque and speed of a 5V DC brushless motor for various masses applied using the shrink of an elastic. Materials for the structure and tests were all found from home.
 
 
-Find the full report [here.]({{site.baseurl/assets/site/files/DP2_lab_report.pdf}}) Watch videos of testing below:"
+Find the full report [here.](/assets/site/files/DP1_ RBDynamometer.pdf) Watch videos of testing below:"
 ---

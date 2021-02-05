@@ -67,97 +67,26 @@ layout: default
   <section id="portfolio" class="portfolio">
       <div class="container" data-aos="faden-up">
         <div class="section-header">
-          <h3 class="section-title">{{ page.art_list.title_txt}}</h3>
+          <h3 class="section-title">{{ page.text_list.titleBig_txt }}</h3>
           <p class="section-description">
-            {{ page.art_list.subtitle_txt }}<br>
-            <a href="{{site.baseurl}}/art/" class="cta-btn" title="Visit my full art page">{{ page.art_list.btn_txt}}</a>
+            {{ page.text_list.subtitle_txt }}<br>
+            <a href="{{site.baseurl}}/art/" class="cta-btn" title="Visit my full art page">{{ page.text_list.btn_txt}}</a>
           </p>
         </div>
 
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+        {% for content in page.art_list %}
           <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <a href="{{page.art_list.one_txt.img_link}}" data-gall="portfolioGallery" class="venobox preview-link" title="{{page.art_list.one_txt.title_txt}}">
-              <img src="{{page.art_list.one_txt.img_link}}" class="img-fluid" alt="">
+            <a href="{{content.img_link}}" data-gall="portfolioGallery" class="venobox preview-link" title="{{content.title_txt}}">
+              <img src="{{content.img_link}}" class="img-fluid" alt="">
             </a>
             <div class="portfolio-info">
-              <h4><i>{{page.art_list.one_txt.title_txt}}</i></h4>
-              <p>{{page.art_list.one_txt.desc_txt}}</p>
+              <h4><i>{{content.title_txt}}</i></h4>
+              <p>{{content.desc_txt}}</p>
             </div>
           </div>
+        {% endfor %}
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <a href="{{page.art_list.two_txt.img_link}}" data-gall="portfolioGallery" class="venobox preview-link" title="{{page.art_list.two_txt.title_txt}}">
-              <img src="{{page.art_list.two_txt.img_link}}" class="img-fluid" alt="">
-            </a>
-            <div class="portfolio-info">
-              <h4><i>{{page.art_list.two_txt.title_txt}}</i></h4>
-              <p>{{page.art_list.two_txt.desc_txt}}</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <a href="{{page.art_list.three_txt.img_link}}" data-gall="portfolioGallery" class="venobox preview-link" title="{{page.art_list.three_txt.title_txt}}">
-              <img src="{{page.art_list.three_txt.img_link}}" class="img-fluid" alt="">
-            </a>
-           <div class="portfolio-info">
-            <h4><i>{{page.art_list.three_txt.title_txt}}</i></h4>
-            <p>{{page.art_list.three_txt.desc_txt}}</p>
-          </div>
-        </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <a href="{{page.art_list.four_txt.img_link}}" data-gall="portfolioGallery" class="venobox preview-link"
-            title="{{page.art_list.four_txt.title_txt}}"><img src="{{page.art_list.four_txt.img_link}}" class="img-fluid" alt=""></a>
-          <div class="portfolio-info">
-            <h4><i>{{page.art_list.four_txt.title_txt}}</i></h4>
-            <p>{{page.art_list.four_txt.desc_txt}}</p>
-          </div>
-          </div>
-
-    <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-        <a href="{{page.art_list.five_txt.img_link}}" data-gall="portfolioGallery" class="venobox preview-link"
-            title="{{page.art_list.five_txt.title_txt}}"><img src="{{page.art_list.five_txt.img_link}}" class="img-fluid" alt=""></a>
-        <div class="portfolio-info">
-            <h4><i>{{page.art_list.five_txt.title_txt}}</i></h4>
-            <p>{{page.art_list.five_txt.desc_txt}}</p>
-        </div>
-    </div>
-
-    <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-        <a href="{{page.art_list.six_txt.img_link}}" data-gall="portfolioGallery" class="venobox preview-link"
-            title="{{page.art_list.six_txt.title_txt}}"><img src="{{page.art_list.six_txt.img_link}}" class="img-fluid"
-                alt=""></a>
-        <div class="portfolio-info">
-            <h4><i>{{page.art_list.six_txt.title_txt}}</i></h4>
-            <p>{{page.art_list.six_txt.desc_txt}}</p>
-        </div>
-    </div>
-
-    <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-        <a href="{{page.art_list.seven_txt.img_link}}" data-gall="portfolioGallery" class="venobox preview-link"
-            title="{{page.art_list.seven_txt.title_txt}}"><img src="{{page.art_list.seven_txt.img_link}}" class="img-fluid" alt=""></a>
-        <div class="portfolio-info">
-            <h4><i>{{page.art_list.seven_txt.title_txt}}</i></h4>
-            <p>{{page.art_list.seven_txt.desc_txt}}</p>
-        </div>
-    </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <a href="{{page.art_list.eight_txt.img_link}}" data-gall="portfolioGallery" class="venobox preview-link"
-            title="{{page.art_list.eight_txt.title_txt}}"><img src="{{page.art_list.eight_txt.img_link}}" class="img-fluid" alt=""></a>
-          <div class="portfolio-info">
-            <h4><i>{{page.art_list.eight_txt.title_txt}}</i></h4>
-            <p>{{page.art_list.eight_txt.desc_txt}}</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <a href="{{page.art_list.nine_txt.img_link}}" data-gall="portfolioGallery" class="venobox preview-link"
-            title="{{page.art_list.nine_txt.title_txt}}"><img src="{{page.art_list.nine_txt.img_link}}" class="img-fluid" alt=""></a>
-          <div class="portfolio-info">
-            <h4><i>{{page.art_list.nine_txt.title_txt}}</i></h4>
-            <p>{{page.art_list.nine_txt.desc_txt}}</p>
-          </div>
         </div>
       </div>
     </div>
@@ -171,30 +100,19 @@ layout: default
           <p class="section-description">{{page.eng_list.subtitle_txt}}</p>
         </div>
       <div class="row">
-        <div class="col-lg-4 col-md-6">
+      {% for content in page.project_list %}
+        <div class="col">
           <div class="member" data-aos="fade-up" data-aos-delay="100">
             <div class="social">
-              <h2><a href="{{site.baseurl}}/stem1/">{{page.eng_list.one_txt}}</a></h2>
+              <h2><a href="{{content.img_link}}">{{content.title_txt}}</a></h2>
             </div>
           </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="member" data-aos="fade-up" data-aos-delay="200">
-            <div class="social">
-              <h2><a href="{{site.baseurl}}/stem2/">{{page.eng_list.two_txt}}</a></h2>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="member" data-aos="fade-up" data-aos-delay="300">
-            <div class="social">
-              <h2><a href="{{site.baseurl}}/stem3/">{{page.eng_list.three_txt}}</a></h2>
-          </div>
+        {% endfor %}
         </div>
       </div>
     </div>
   </section>
-  
+
 <!-- ======= Contact Section ======= -->
   <section id="contact">
       {% include site/contact.inc %}

@@ -34,53 +34,51 @@ resume_list:
   title_txt: "My Resume"
   btn_txt: "RESUME"
 
-art_list:
-  title_txt: "ART"
+text_list:
+  titleBig_txt: "ART"
   subtitle_txt: "I like to do some drawing, painting, graphic design, and sculpture!"
   btn_txt: "SEE MORE"
-  one_txt:
-    title_txt: "Merciless"
+
+art_list:
+  - title_txt: "Merciless"
     desc_txt: "Graphite drawing"
     img_link: "assets/site/images/portfolio/portfolio-1.jpg"
-  two_txt:
-    title_txt: "Lavender Farm"
+  - title_txt: "Lavender Farm"
     desc_txt: "Mixed media painting"
     img_link: "assets/site/images/portfolio/portfolio-2.jpg"
-  three_txt:
-    title_txt: "Sketchbook Excerpt"
+  - title_txt: "Sketchbook Excerpt"
     desc_txt: "Ballpoint pen drawing"
     img_link: "assets/site/images/portfolio/portfolio-3.jpg"
-  four_txt:
-    title_txt: "Dish Washer"
+  - title_txt: "Dish Washer"
     desc_txt: "Acrylic painting"
     img_link: "assets/site/images/portfolio/portfolio-4.jpg"
-  five_txt:
-    title_txt: "Touch"
+  - title_txt: "Touch"
     desc_txt: "Graphite series"
     img_link: "assets/site/images/portfolio/portfolio-5.jpg"
-  six_txt:
-    title_txt: "Cardboard Party"
+  - title_txt: "Cardboard Party"
     desc_txt: "Acrylic painting on cardboard"
     img_link: "assets/site/images/portfolio/portfolio-6.jpg"
-  seven_txt:
-    title_txt: "Hand Study"
+  - title_txt: "Hand Study"
     desc_txt: "Graphite drawing"
     img_link: "assets/site/images/portfolio/portfolio-7.jpg"
-  eight_txt:
-    title_txt: "It Is So Cute"
+  - title_txt: "It Is So Cute"
     desc_txt: "Acrylic painting"
     img_link: "assets/site/images/portfolio/portfolio-8.jpg"
-  nine_txt:
-    title_txt: "Icon"
+  - title_txt: "Icon"
     desc_txt: "Pen and marker drawing"
     img_link: "assets/site/images/portfolio/portfolio-9.jpg"
 
 eng_list:
   title_txt: "ENGINEERING"
   subtitle_txt: "Take a look at some engineering design projects I've done:"
-  one_txt: "Cell Phone Stand"
-  two_txt: "Hydraulic Arm Kit"
-  three_txt: "Homemade Ropebreak Dynamometer"
+  
+project_list:
+  - title_txt: "Cell Phone Stand"
+    img_link: "/stem1/"
+  - title_txt: "Hydraulic Arm Kit"
+    img_link: "/stem2/"
+  - title_txt: "Homemade Ropebreak Dynamometer"
+    img_link: "/stem3/"
 ########################################
 
 email: joyce.chen1@uwaterloo.ca

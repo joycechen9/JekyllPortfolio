@@ -24,6 +24,72 @@ main_list:
         fil1_txt: "STILL"
         fil2_txt: "VIDEO"
 
+
+#2d ART
+2dArt_list:
+    colLeft_list:
+        - img_link: "/assets/site/images/art/2D/touch.jpg"
+        - img_link: "/assets/site/images/art/2D/dishwash.jpg"
+        - img_link: "/assets/site/images/art/2D/character.jpg"
+        - img_link: "/assets/site/images/art/2D/omelas.jpg"
+        - img_link: "/assets/site/images/art/2D/eggshells.jpg"
+        - img_link: "/assets/site/images/art/2D/sketchbook3.jpg"
+        - img_link: "/assets/site/images/portfolio/portfolio-3.jpg"
+        - img_link: "/assets/site/images/hero-bg.jpg"
+        - img_link: "/assets/site/images/art/2D/sketchbooka.jpg"
+    colMid_list:
+        - img_link: "/assets/site/images/art/2D/cardboard party 2.jpg"
+        - img_link: "/assets/site/images/art/2D/medusa.jpg"
+        - img_link: "/assets/site/images/art/2D/lavender.jpg"
+        - img_link: "/assets/site/images/art/2D/hands.jpg"
+        - img_link: "/assets/site/images/art/2D/oqavat.jpg"
+        - img_link: "/assets/site/images/art/2D/collage.JPG"
+        - img_link: "/assets/site/images/art/2D/evan.jpg"
+        - img_link: "/assets/site/images/hero-bg.jpg"
+        - img_link: "/assets/site/images/art/2D/icon.jpg"
+    colRight_list:
+        - img_link: "/assets/site/images/art/2D/garment.jpg"
+        - img_link: "/assets/site/images/art/2D/neoexpression.jpg"
+        - img_link: "/assets/site/images/art/2D/chess.jpg"
+        - img_link: "/assets/site/images/art/2D/jan.jpg"
+        - img_link: "/assets/site/images/art/2D/hand studies.jpg"
+        - img_link: "/assets/site/images/art/2D/sketchbook4.jpg"
+        - img_link: "/assets/site/images/art/2D/ROMA.jpg"
+        - img_link: "/assets/site/images/art/2D/sketchbook2.jpg"
+        - img_link: "/assets/site/images/art/2D/longan.jpg"
+        - img_link: "/assets/site/images/art/2D/sketchbookb.jpg"
+
+#3d ART
+3dArt_list:
+    colLeft_list:
+        - img_link: "/assets/site/images/art/3D/natfinal.jpg"
+        - img_link: "/assets/site/images/art/3D/light.jpg"
+    colRight_list:
+        - img_link: "/assets/site/images/art/3D/glorification cult.jpg"
+        - img_link: "/assets/site/images/art/3D/emp.jpg"
+
+#GRAPHIC
+graphic_list:
+    colLeft_list:
+        - img_link: "/assets/site/images/art/GRAPHIC/apples for dinner.jpg"
+        - img_link: "/assets/site/images/art/GRAPHIC/glorifies.jpg"
+        - img_link: "/assets/site/images/art/GRAPHIC/poster and ticket.jpg"
+        - img_link: "/assets/site/images/art/GRAPHIC/poster and ticket (1).jpg"
+        - img_link: "/assets/site/images/art/GRAPHIC/pb4.jpg"
+    colRight_list:
+        - img_link: "/assets/site/images/art/GRAPHIC/dream map.jpg"
+        - img_link: "/assets/site/images/art/GRAPHIC/DOCUMENTATION2.jpg"
+        - img_link: "/assets/site/images/art/GRAPHIC/shenchenwen-logo-1.jpg"
+        - img_link: "/assets/site/images/art/GRAPHIC/ROBOTheaven.jpeg"
+        - img_link: "/assets/site/images/art/GRAPHIC/pb.png"
+    colBottom_list:
+        - img_link: "/assets/site/images/art/GRAPHIC/pb3.jpg"
+        - img_link: "/assets/site/images/art/GRAPHIC/pb2.jpg"
+        - img_link: "/assets/site/images/art/GRAPHIC/pb6.jpg"
+        - img_link: "/assets/site/images/art/GRAPHIC/pb7.jpg"
+
+
+#GRAPHIC
 email: joyce.chen1@uwaterloo.ca
 phone: (647) 501-6661
 instagram: https://www.instagram.com/joy.ceart/

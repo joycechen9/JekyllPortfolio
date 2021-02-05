@@ -34,39 +34,23 @@ layout: default
         </div>
       </div>
 <!-- Photo Grid -->
-      <div class="row" data-aos="fade-up" data-aos-delay="200"> 
+      <div class="row" data-aos="fade-up" data-aos-delay="200">
         <div class="column">
-          <a href="{{site.baseurl}}/assets/site/images/art/2D/touch.jpg" data-gall="portfolioGallery" class="venobox preview-link" title="App 1"><img src="{{site.baseurl}}/assets/site/images/art/2D/touch.jpg" style="width:100%" class="img-fluid"></a>
-          <img src="{{site.baseurl}}/assets/site/images/art/2D/dishwash.jpg" style="width:100%" class="img-fluid">
-          <img src="{{site.baseurl}}/assets/site/images/art/2D/character.jpg" style="width:100%" class="img-fluid">
-          <img src="{{site.baseurl}}/assets/site/images/art/2D/omelas.jpg" style="width:100%" class="img-fluid">
-          <img src="{{site.baseurl}}/assets/site/images/art/2D/eggshells.jpg" style="width:100%" class="img-fluid">
-          <img src="{{site.baseurl}}/assets/site/images/art/2D/sketchbook3.jpg" style="width:100%" class="img-fluid">
-          <img src="{{site.baseurl}}/assets/site/images/portfolio/portfolio-3.jpg" style="width:100%" class="img-fluid">
-          <img src="{{site.baseurl}}/assets/site/images/hero-bg.jpg" style="width:100%" class="img-fluid">
-          <img src="{{site.baseurl}}/assets/site/images/art/2D/sketchbooka.jpg" style="width:100%" class="img-fluid">
+        {% for content in page.2dArt_list.colLeft_list %}
+          <img src="{{content.img_link}}" style="width:100%" class="img-fluid">
+        {% endfor %}
         </div>
+
         <div class="column">
-          <img src="{{site.baseurl}}/assets/site/images/art/2D/cardboard party 2.jpg" style="width:100%"class="img-fluid">
-          <img src="{{site.baseurl}}/assets/site/images/art/2D/medusa.jpg" style="width:100%" class="img-fluid">
-          <img src="{{site.baseurl}}/assets/site/images/art/2D/lavender.jpg" style="width:100%" class="img-fluid">
-          <img src="{{site.baseurl}}/assets/site/images/art/2D/hands.jpg" style="width:100%" class="img-fluid">
-          <img src="{{site.baseurl}}/assets/site/images/art/2D/oqavat.jpg" style="width:100%" class="img-fluid">
-          <img src="{{site.baseurl}}/assets/site/images/art/2D/collage.JPG" style="width:100%" class="img-fluid">
-          <img src="{{site.baseurl}}/assets/site/images/art/2D/evan.jpg" style="width:100%" class="img-fluid">
-          <img src="{{site.baseurl}}/assets/site/images/art/2D/icon.JPG" style="width:100%" class="img-fluid">
-        </div>  
+        {% for content in page.2dArt_list.colMid_list %}
+          <img src="{{content.img_link}}" style="width:100%"class="img-fluid">
+        {% endfor %}
+        </div>
+
         <div class="column">
-          <img src="{{site.baseurl}}/assets/site/images/art/2D/garment.jpg" style="width:100%" class="img-fluid">
-          <img src="{{site.baseurl}}/assets/site/images/art/2D/neoexpression.jpg" style="width:100%" class="img-fluid">
-          <img src="{{site.baseurl}}/assets/site/images/art/2D/chess.jpg" style="width:100%" class="img-fluid">
-          <img src="{{site.baseurl}}/assets/site/images/art/2D/jan.jpg" style="width:100%" class="img-fluid">
-          <img src="{{site.baseurl}}/assets/site/images/art/2D/hand studies.jpg" style="width:100%" class="img-fluid">
-          <img src="{{site.baseurl}}/assets/site/images/art/2D/sketchbook4.jpg" style="width:100%" class="img-fluid">
-          <img src="{{site.baseurl}}/assets/site/images/art/2D/ROMA.jpg" style="width:100%" class="img-fluid">
-          <img src="{{site.baseurl}}/assets/site/images/art/2D/sketchbook2.jpg" style="width:100%" class="img-fluid">
-          <img src="{{site.baseurl}}/assets/site/images/art/2D/longan.jpg" style="width:100%" class="img-fluid">
-          <img src="{{site.baseurl}}/assets/site/images/art/2D/sketchbookb.jpg" style="width:100%" class="img-fluid">
+        {% for content in page.2dArt_list.colRight_list %}
+          <img src="{{content.img_link}}" style="width:100%"class="img-fluid">
+        {% endfor %}
         </div>
       </div>
     </div>
@@ -84,12 +68,14 @@ layout: default
 <!-- Photo Grid -->
       <div class="row" data-aos="fade-up" data-aos-delay="200"> 
         <div class="column2">
-          <img src="{{site.baseurl}}/assets/site/images/art/3D/natfinal.jpg" style="width:100%" class="img-fluid">
-          <img src="{{site.baseurl}}/assets/site/images/art/3D/light.jpg" style="width:100%" class="img-fluid">
+        {% for content in page.3dArt_list.colLeft_list %}
+          <img src="{{content.img_link}}" style="width:100%" class="img-fluid">
+        {% endfor %}
         </div>
         <div class="column2">
-          <img src="{{site.baseurl}}/assets/site/images/art/3D/glorification cult.jpg" style="width:100%"class="img-fluid">
-          <img src="{{site.baseurl}}/assets/site/images/art/3D/emp.jpg" style="width:100%" class="img-fluid">
+        {% for content in page.3dArt_list.colRight_list %}
+          <img src="{{content.img_link}}" style="width:100%"class="img-fluid">
+        {% endfor %}
         </div>  
       </div> 
     </div>
@@ -116,25 +102,20 @@ layout: default
 <!-- Photo Grid -->
         <div class="row" data-aos="fade-up" data-aos-delay="200"> 
           <div class="column2">
-            <img src="{{site.baseurl}}/assets/site/images/art/GRAPHIC/apples for dinner.jpg" style="width:100%" class="img-fluid">
-            <img src="{{site.baseurl}}/assets/site/images/art/GRAPHIC/glorifies.jpg" style="width:100%" class="img-fluid">
-            <img src="{{site.baseurl}}/assets/site/images/art/GRAPHIC/poster and ticket.jpg" style="width:100%" class="img-fluid">
-            <img src="{{site.baseurl}}/assets/site/images/art/GRAPHIC/poster and ticket (1).jpg" style="width:100%" class="img-fluid">
-            <img src="{{site.baseurl}}/assets/site/images/art/GRAPHIC/pb4.jpg" style="width:100%" class="img-fluid">
+          {% for content in page.graphic_list.colLeft_list %}
+            <img src="{{content.img_link}}" style="width:100%" class="img-fluid">
+          {% endfor %}
           </div>
           <div class="column2">
-            <img src="{{site.baseurl}}/assets/site/images/art/GRAPHIC/dream map.jpg" style="width:100%"class="img-fluid">
-            <img src="{{site.baseurl}}/assets/site/images/art/GRAPHIC/DOCUMENTATION2.jpg" style="width:100%" class="img-fluid">
-            <img src="{{site.baseurl}}/assets/site/images/art/GRAPHIC/shenchenwen-logo-1.jpg" style="width:100%" class="img-fluid">
-            <img src="{{site.baseurl}}/assets/site/images/art/GRAPHIC/ROBOTheaven.jpeg" style=width:100%s class="img-fluid">
-            <img src="{{site.baseurl}}/assets/site/images/art/GRAPHIC/pb.png" style="width:100%" class="img-fluid">
+          {% for content in page.graphic_list.colRight_list %}
+            <img src="{{content.img_link}}" style="width:100%"class="img-fluid">
+          {% endfor %}
           </div>  
         </div> 
         <div class="column2">
-          <img src="{{site.baseurl}}/assets/site/images/art/GRAPHIC/pb3.jpg" style="width:100%"class="img-fluid">
-          <img src="{{site.baseurl}}/assets/site/images/art/GRAPHIC/pb2.jpg" style="width:100%" class="img-fluid">
-          <img src="{{site.baseurl}}/assets/site/images/art/GRAPHIC/pb6.jpg" style="width:100%" class="img-fluid">
-          <img src="{{site.baseurl}}/assets/site/images/art/GRAPHIC/pb7.jpg" style=width:100%s class="img-fluid">
+        {% for content in page.graphic_list.colBottom_list %}
+          <img src="{{content.img_link}}" style="width:100%"class="img-fluid">
+        {% endfor %}
         </div>  
     </div> 
   </section>
