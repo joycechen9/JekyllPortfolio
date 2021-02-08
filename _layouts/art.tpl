@@ -37,19 +37,19 @@ layout: default
       <div class="row" data-aos="fade-up" data-aos-delay="200">
         <div class="column">
         {% for content in page.2dArt_list.colLeft_list %}
-          <img src="{{content.img_link}}" style="width:100%" class="img-fluid">
+          <img src="{{site.baseurl}}{{content.img_txt}}" style="width:100%" class="img-fluid">
         {% endfor %}
         </div>
 
         <div class="column">
         {% for content in page.2dArt_list.colMid_list %}
-          <img src="{{content.img_link}}" style="width:100%"class="img-fluid">
+          <img src="{{site.baseurl}}{{content.img_txt}}" style="width:100%"class="img-fluid">
         {% endfor %}
         </div>
 
         <div class="column">
         {% for content in page.2dArt_list.colRight_list %}
-          <img src="{{content.img_link}}" style="width:100%"class="img-fluid">
+          <img src="{{site.baseurl}}{{content.img_txt}}" style="width:100%"class="img-fluid">
         {% endfor %}
         </div>
       </div>
@@ -69,12 +69,12 @@ layout: default
       <div class="row" data-aos="fade-up" data-aos-delay="200"> 
         <div class="column2">
         {% for content in page.3dArt_list.colLeft_list %}
-          <img src="{{content.img_link}}" style="width:100%" class="img-fluid">
+          <img src="{{site.baseurl}}{{content.img_txt}}" style="width:100%" class="img-fluid">
         {% endfor %}
         </div>
         <div class="column2">
         {% for content in page.3dArt_list.colRight_list %}
-          <img src="{{content.img_link}}" style="width:100%"class="img-fluid">
+          <img src="{{site.baseurl}}{{content.img_txt}}" style="width:100%"class="img-fluid">
         {% endfor %}
         </div>  
       </div> 
@@ -103,18 +103,18 @@ layout: default
         <div class="row" data-aos="fade-up" data-aos-delay="200"> 
           <div class="column2">
           {% for content in page.graphic_list.colLeft_list %}
-            <img src="{{content.img_link}}" style="width:100%" class="img-fluid">
+            <img src="{{site.baseurl}}{{content.img_txt}}" style="width:100%" class="img-fluid">
           {% endfor %}
           </div>
           <div class="column2">
           {% for content in page.graphic_list.colRight_list %}
-            <img src="{{content.img_link}}" style="width:100%"class="img-fluid">
+            <img src="{{site.baseurl}}{{content.img_txt}}" style="width:100%"class="img-fluid">
           {% endfor %}
           </div>  
         </div> 
         <div class="column2">
         {% for content in page.graphic_list.colBottom_list %}
-          <img src="{{content.img_link}}" style="width:100%"class="img-fluid">
+          <img src="{{site.baseurl}}{{content.img_txt}}" style="width:100%"class="img-fluid">
         {% endfor %}
         </div>  
     </div> 
