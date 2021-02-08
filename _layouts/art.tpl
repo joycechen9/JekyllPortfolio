@@ -36,19 +36,19 @@ layout: default
 <!-- Photo Grid -->
       <div class="row" data-aos="fade-up" data-aos-delay="200">
         <div class="column">
-        {% for content in page.2dArt_list.colLeft_list %}
+        {% for content in page.my2dArt_list.colLeft_list %}
           <img src="{{site.baseurl}}{{content.img_txt}}" style="width:100%" class="img-fluid">
         {% endfor %}
         </div>
 
         <div class="column">
-        {% for content in page.2dArt_list.colMid_list %}
+        {% for content in page.my2dArt_list.colMid_list %}
           <img src="{{site.baseurl}}{{content.img_txt}}" style="width:100%"class="img-fluid">
         {% endfor %}
         </div>
 
         <div class="column">
-        {% for content in page.2dArt_list.colRight_list %}
+        {% for content in page.my2dArt_list.colRight_list %}
           <img src="{{site.baseurl}}{{content.img_txt}}" style="width:100%"class="img-fluid">
         {% endfor %}
         </div>
@@ -68,12 +68,12 @@ layout: default
 <!-- Photo Grid -->
       <div class="row" data-aos="fade-up" data-aos-delay="200"> 
         <div class="column2">
-        {% for content in page.3dArt_list.colLeft_list %}
+        {% for content in page.my3dArt_list.colLeft_list %}
           <img src="{{site.baseurl}}{{content.img_txt}}" style="width:100%" class="img-fluid">
         {% endfor %}
         </div>
         <div class="column2">
-        {% for content in page.3dArt_list.colRight_list %}
+        {% for content in page.my3dArt_list.colRight_list %}
           <img src="{{site.baseurl}}{{content.img_txt}}" style="width:100%"class="img-fluid">
         {% endfor %}
         </div>  

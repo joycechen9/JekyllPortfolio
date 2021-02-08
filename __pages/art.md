@@ -26,7 +26,7 @@ main_list:
 
 
 #2d ART
-2dArt_list:
+my2dArt_list:
     colLeft_list:
         - img_txt: "/assets/site/images/art/2D/touch.jpg"
         - img_txt: "/assets/site/images/art/2D/dishwash.jpg"
@@ -60,7 +60,7 @@ main_list:
         - img_txt: "/assets/site/images/art/2D/sketchbookb.jpg"
 
 #3d ART
-3dArt_list:
+my3dArt_list:
     colLeft_list:
         - img_txt: "/assets/site/images/art/3D/natfinal.jpg"
         - img_txt: "/assets/site/images/art/3D/light.jpg"
