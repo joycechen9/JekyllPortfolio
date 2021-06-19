@@ -10,7 +10,7 @@ intro_txt:
 
 about_list:
   title_txt: "ABOUT ME"
-  content_txt: "I am a first year Mechanical Engineering major at the University of Waterloo. I have a passion for arts and design, as well as a background of fine arts education. My goal as a student is to combine my artistic passion with the science of creation so I have the tools to build systems of the future that are not only sustainable, but beautiful."
+  content_txt: "I am a first year Mechatronics Engineering major at the University of Waterloo. I have a passion for arts and design, as well as a background of fine arts education. My goal as a student is to combine my artistic passion with the science of creation so I have the tools to build systems of the future that are not only sustainable, but beautiful."
   qual_list:
     firstTitle_txt: "Skills"
     first_txt: >-
